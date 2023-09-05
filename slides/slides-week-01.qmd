@@ -1,0 +1,297 @@
+---
+title: Welcome to R in 3 Months
+format:
+  rfortherestofus-slides-revealjs:
+    menu: false
+    progress: true
+    slide-number: true
+    show-slide-number: print
+    center: true
+    incremental: true
+    auto-animate: true
+execute: 
+  message: false
+  warning: false
+  cache: false
+title-slide-attributes:
+  data-background-image: assets/rru-hex-bg-gradient-dark.svg
+  data-background-size: cover
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(tidyverse)
+library(googlesheets4)
+library(lubridate)
+library(janitor)
+library(hrbrthemes)
+library(scales)
+library(tidygeocoder)
+library(rnaturalearthdata)
+library(sf)
+library(emojifont)
+
+world_sf <- countries110 |> 
+  st_as_sf()
+```
+
+# Agenda
+
+1. Welcome
+
+1. Logistics
+
+1. Weekly Plan
+
+1. Questions on Getting Started with R
+
+1. Next Week
+
+# Survey
+
+If you haven't yet completed the pre-survey, [please do so now](https://docs.google.com/forms/d/e/1FAIpQLSdRWALRAzMBCYKMVTCeNx4B8uh9LF8LU2xZZfY4IyDqvOZ8aw/viewform?usp=sf_link).
+
+# Welcome
+
+# Introductions
+
+
+# David Keyes
+
+![](assets/david.jpg)
+
+# Libby Heeren
+
+![](assets/libby.jpeg)
+
+
+# Gracielle Higino
+
+![](assets/gracielle.png)
+
+
+# Who Are You? {.inverse}
+
+## Where are you from?
+
+```{r}
+
+participants <- read_sheet("https://docs.google.com/spreadsheets/d/1Rz7_1_CzxURdhPHRj9YAzV-tgQP6xQmY_qV0VPjhPYs/edit#gid=0") |>
+  clean_names()
+
+geocoded_participants <- participants |>
+  select(city, state_province, country) |>
+  geocode(city = city,
+          state = state_province,
+          country = country,
+          method = "iq") |> 
+  st_as_sf(coords = c("long", "lat"),
+           crs = 4326)
+  
+
+  ggplot() +
+  geom_sf(data = world_sf,
+          fill = "bisque",
+          color = "white",
+          size = 0.5) +
+    geom_sf(data = geocoded_participants,
+            shape = 21,
+            color = "white",
+            fill = "#6cabdd") +
+  theme_void()
+```
+
+## How much have you used R?
+
+```{r}
+pre_survey <- read_sheet("https://docs.google.com/spreadsheets/d/19Ny92IGg0ZzIqiLs7QywaGF-Y85HQZn1iIIXN4I_tpg/edit?resourcekey#gid=1201619159") |> 
+  clean_names()
+```
+
+```{r}
+pre_survey_fall_2023 <- pre_survey |> 
+  mutate(year = year(timestamp)) |> 
+  filter(timestamp > ymd("2023-08-01"),
+         timestamp < ymd("2023-12-31"),
+         ! `what_is_your_name` %in% c("David Keyes", "David")) |> 
+  mutate(how_much_have_you_used_r = factor(how_much_have_you_used_r,
+                                           levels = c("Never", "Very Infrequently", "Occasionally", "Frequently")))
+
+rin3_bar_chart <- function(df, x_var) {
+  
+  df |> 
+    ggplot(aes(y = n,
+               x = {{ x_var }})) +
+    geom_col(fill = "#6cabdd") +
+    labs(y = NULL,
+         x = NULL) +
+    theme_minimal(base_family = "Inter Regular", base_size = 20) +
+    theme(plot.title.position = "plot",
+          panel.grid.minor.x = element_blank(),
+          panel.grid.major.x = element_blank(),
+          panel.grid.minor.y = element_blank()) +
+    scale_y_continuous(breaks = pretty_breaks(2))
+  
+  
+}
+
+pre_survey_fall_2023 |> 
+  select(how_much_have_you_used_r) |> 
+  count(how_much_have_you_used_r) |>
+  rin3_bar_chart(how_much_have_you_used_r)
+```
+
+## How would you rate your level of expertise working with R for DATA ANALYSIS?
+
+```{r}
+data_analysis_expertise <- pre_survey_fall_2023 |> 
+  select(how_would_you_rate_your_level_of_expertise_working_with_r_for_data_analysis) |> 
+  count(how_would_you_rate_your_level_of_expertise_working_with_r_for_data_analysis) |>
+  rename(data_analysis_expertise = how_would_you_rate_your_level_of_expertise_working_with_r_for_data_analysis) |> 
+  right_join(tibble(data_analysis_expertise = 1:10)) |> 
+  mutate(data_analysis_expertise = as.character(data_analysis_expertise)) |> 
+  mutate(data_analysis_expertise = fct_relevel(data_analysis_expertise, as.character(1:10))) |> 
+  mutate(data_analysis_expertise = fct_recode(data_analysis_expertise, "1\nNovice" = "1", "10\nExpert" = "10"))
+
+data_analysis_expertise |> 
+  rin3_bar_chart(data_analysis_expertise)
+```
+
+## How would you rate your level of expertise working with R for DATA VISUALIZATION?
+
+```{r}
+data_viz_expertise <- pre_survey_fall_2023 |> 
+  select(how_would_you_rate_your_level_of_expertise_working_with_r_for_data_visualization) |> 
+  count(how_would_you_rate_your_level_of_expertise_working_with_r_for_data_visualization) |>
+  rename(data_viz_expertise = how_would_you_rate_your_level_of_expertise_working_with_r_for_data_visualization) |> 
+  right_join(tibble(data_viz_expertise = 1:10)) |> 
+  mutate(data_viz_expertise = as.character(data_viz_expertise)) |> 
+  mutate(data_viz_expertise = fct_relevel(data_viz_expertise, as.character(1:10))) |> 
+  mutate(data_viz_expertise = fct_recode(data_viz_expertise, "1\nNovice" = "1", "10\nExpert" = "10"))
+
+data_viz_expertise |> 
+  rin3_bar_chart(data_viz_expertise)
+```
+
+## On a scale from terrified to excited, how do you feel about the process of learning R?
+
+```{r}
+how_terrified <- pre_survey_fall_2023 |> 
+  select(on_a_scale_from_terrified_to_excited_how_do_you_feel_about_the_process_of_learning_r) |> 
+  count(on_a_scale_from_terrified_to_excited_how_do_you_feel_about_the_process_of_learning_r) |>
+  rename(how_terrified = on_a_scale_from_terrified_to_excited_how_do_you_feel_about_the_process_of_learning_r) |> 
+  right_join(tibble(how_terrified = 1:10)) |> 
+  mutate(how_terrified = as.character(how_terrified)) |> 
+  mutate(how_terrified = fct_relevel(how_terrified, as.character(1:10))) |> 
+  mutate(how_terrified = fct_recode(how_terrified, "1\nTerrified" = "1", "10\nExcited" = "10"))
+
+how_terrified |> 
+  rin3_bar_chart(how_terrified)
+```
+
+# Breakout Rooms {.inverse}
+
+## Breakout Rooms
+
+Share with the people in your breakout room: 
+
+- Name
+
+- Pronouns
+
+- Location
+
+- Organization
+
+- Where you hope to be in 3 months
+
+# How R in 3 Months Works {.inverse}
+
+---
+
+## Weekly Schedule
+
+### Thursday
+
+- Live session from 10-11am Pacific time
+- Live session video posted
+- Follow-up email sent out
+- Start working on course assignment
+
+### Monday
+
+- Reminder email sent out
+
+### Tuesday
+
+- Complete project assignment (ideally)
+
+## Code of Conduct
+
+[![](assets/code-of-conduct.png)](https://rfortherestofus.com/code-of-conduct)
+
+## Course Materials
+
+[![](assets/rin3-course.png)](https://rfortherestofus.com/courses/r-in-3-months-fall-2023)
+
+## Course Questions
+
+![](assets/lesson-question.png)
+
+## Project Assignments
+
+[![](assets/project-assignment.png)](https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/week2-project-assignment)
+
+## Feedback
+
+![](assets/feedback-example.png)
+
+
+## Project Datasets
+
+- If you can't share your datasets (or don't have any) you could try looking at [Tidy Tuesday datasets](https://github.com/rfordatascience/tidytuesday).
+
+- There are also some good datasets collected by Vincent Arel-Bundock [here](https://vincentarelbundock.github.io/Rdatasets/articles/data.html)
+
+## Discord
+
+![](assets/discord.png)
+
+## Where Questions Go
+
+- Lesson-specific questions on lessons
+- General questions in Discord
+
+## Office Hours
+
+## Live Sessions
+
+- Answer questions
+- Live coding
+- Group exercises
+- And more!
+
+::: {.notes}
+https://us02web.zoom.us/j/87489928701?pwd=YnRhZWp6TnUvRllicmkvV1dVajZBUT09
+:::
+
+
+# Getting Started Questions {.inverse}
+
+::: {.notes}
+- Tidyverse loading message
+- read.csv vs read_csv
+- How often to update packages
+:::
+
+# Next Week {.inverse}
+
+## Course Assignment
+
+- You'll learn the fundamentals of data wrangling and analysis with the `dplyr` package
+
+## Project Assignment
+
+- Do some analysis on your own data
+
