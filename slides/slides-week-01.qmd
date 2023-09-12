@@ -13,6 +13,7 @@ execute:
   message: false
   warning: false
   cache: false
+  # eval: false
 title-slide-attributes:
   data-background-image: assets/rru-hex-bg-gradient-dark.svg
   data-background-size: cover
@@ -76,11 +77,15 @@ If you haven't yet completed the pre-survey, [please do so now](https://docs.goo
 ## Where are you from?
 
 ```{r}
+#| eval: false
+
+gs4_auth("david@rfortherestofus.com")
 
 participants <- read_sheet("https://docs.google.com/spreadsheets/d/1Rz7_1_CzxURdhPHRj9YAzV-tgQP6xQmY_qV0VPjhPYs/edit#gid=0") |>
   clean_names()
 
 geocoded_participants <- participants |>
+  drop_na(city) |> 
   select(city, state_province, country) |>
   geocode(city = city,
           state = state_province,
@@ -118,7 +123,7 @@ pre_survey_fall_2023 <- pre_survey |>
   mutate(how_much_have_you_used_r = factor(how_much_have_you_used_r,
                                            levels = c("Never", "Very Infrequently", "Occasionally", "Frequently")))
 
-rin3_bar_chart <- function(df, x_var) {
+rin3_bar_chart <- function(df, x_var, number_of_breaks = 4) {
   
   df |> 
     ggplot(aes(y = n,
@@ -131,14 +136,13 @@ rin3_bar_chart <- function(df, x_var) {
           panel.grid.minor.x = element_blank(),
           panel.grid.major.x = element_blank(),
           panel.grid.minor.y = element_blank()) +
-    scale_y_continuous(breaks = pretty_breaks(2))
-  
+    scale_y_continuous(breaks = pretty_breaks(number_of_breaks))
   
 }
 
 pre_survey_fall_2023 |> 
   select(how_much_have_you_used_r) |> 
-  count(how_much_have_you_used_r) |>
+  count(how_much_have_you_used_r, .drop = FALSE) |>
   rin3_bar_chart(how_much_have_you_used_r)
 ```
 
@@ -208,22 +212,18 @@ Share with the people in your breakout room:
 
 # How R in 3 Months Works {.inverse}
 
----
-
-## Weekly Schedule
-
-### Thursday
+## Thursday
 
 - Live session from 10-11am Pacific time
 - Live session video posted
 - Follow-up email sent out
 - Start working on course assignment
 
-### Monday
+## Monday
 
 - Reminder email sent out
 
-### Tuesday
+## Tuesday
 
 - Complete project assignment (ideally)
 
@@ -234,6 +234,14 @@ Share with the people in your breakout room:
 ## Course Materials
 
 [![](assets/rin3-course.png)](https://rfortherestofus.com/courses/r-in-3-months-fall-2023)
+
+::: {.notes}
+Courses are being re-recorded so please provide feedback
+:::
+
+## Captions
+
+{{< video assets/translate-video.mp4 >}}
 
 ## Course Questions
 
