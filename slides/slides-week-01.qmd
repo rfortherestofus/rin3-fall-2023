@@ -77,8 +77,6 @@ If you haven't yet completed the pre-survey, [please do so now](https://docs.goo
 ## Where are you from?
 
 ```{r}
-#| eval: false
-
 gs4_auth("david@rfortherestofus.com")
 
 participants <- read_sheet("https://docs.google.com/spreadsheets/d/1Rz7_1_CzxURdhPHRj9YAzV-tgQP6xQmY_qV0VPjhPYs/edit#gid=0") |>
@@ -95,7 +93,7 @@ geocoded_participants <- participants |>
            crs = 4326)
   
 
-  ggplot() +
+ggplot() +
   geom_sf(data = world_sf,
           fill = "bisque",
           color = "white",
@@ -225,6 +223,7 @@ Share with the people in your breakout room:
 
 ## Tuesday
 
+- Office hours
 - Complete project assignment (ideally)
 
 ## Code of Conduct
@@ -255,6 +254,11 @@ Courses are being re-recorded so please provide feedback
 
 ![](assets/feedback-example.png)
 
+## Project Datasets
+
+- This is an opportunity for you to practice working with your own data
+
+- If you need to help to remove personally identifiable information, please let your coach know!
 
 ## Project Datasets
 
@@ -288,9 +292,11 @@ https://us02web.zoom.us/j/87489928701?pwd=YnRhZWp6TnUvRllicmkvV1dVajZBUT09
 # Getting Started Questions {.inverse}
 
 ::: {.notes}
+- Mistake on lessons
 - Tidyverse loading message
 - read.csv vs read_csv
 - How often to update packages
+- Projects
 :::
 
 # Next Week {.inverse}
@@ -298,6 +304,8 @@ https://us02web.zoom.us/j/87489928701?pwd=YnRhZWp6TnUvRllicmkvV1dVajZBUT09
 ## Course Assignment
 
 - You'll learn the fundamentals of data wrangling and analysis with the `dplyr` package
+
+- You are the first to see these lessons so please let me know if you have feedback!
 
 ## Project Assignment
 
