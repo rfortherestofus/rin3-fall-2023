@@ -221,10 +221,11 @@ Share with the people in your breakout room:
 
 - Reminder email sent out
 
-## Tuesday
+## Wednesday
 
-- Office hours
-- Complete project assignment (ideally)
+- Co-working session with Gracielle 10:00am - 11:00am Pacific time
+- Co-working session with Libby 4:00pm - 5:00pm Pacific time
+- Complete course and project assignments (ideally)
 
 ## Code of Conduct
 
@@ -266,6 +267,8 @@ Courses are being re-recorded so please provide feedback
 
 - There are also some good datasets collected by Vincent Arel-Bundock [here](https://vincentarelbundock.github.io/Rdatasets/articles/data.html)
 
+
+
 ## Discord
 
 ![](assets/discord.png)
@@ -275,7 +278,9 @@ Courses are being re-recorded so please provide feedback
 - Lesson-specific questions on lessons
 - General questions in Discord
 
-## Office Hours
+## Co-Working Sessions
+
+Chance to ask questions of coaches (think of college office hours) and/or work together with others
 
 ## Live Sessions
 
