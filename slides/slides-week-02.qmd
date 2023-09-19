@@ -1,0 +1,146 @@
+---
+title: R in 3 Months Week 2 (Data Wrangling and Analysis)
+format:
+  rfortherestofus-slides-revealjs:
+    menu: false
+    progress: true
+    slide-number: true
+    show-slide-number: print
+    center: true
+    incremental: true
+    auto-animate: true
+execute: 
+  message: false
+  warning: false
+  cache: false
+  # eval: false
+title-slide-attributes:
+  data-background-image: assets/rru-hex-bg-gradient-dark.svg
+  data-background-size: cover
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(palmerpenguins)
+library(tidyverse)
+library(janitor)
+library(tidycensus)
+```
+
+# Agenda
+
+1. Review of `dplyr` functions
+
+1. Common issues
+
+1. Your questions
+
+1. Next week
+
+
+# Review of Functions {.inverse}
+
+# `select()` {.inverse}
+
+# {background-video="assets/09_select.mp4" background-video-loop="true" background-size="contain"}
+
+
+# `mutate()` {.inverse}
+
+# {background-video="assets/04_mutate.mp4" background-video-loop="true" background-size="contain"}
+
+# `filter()` {.inverse}
+
+# {background-video="assets/01_filter_1.mp4" background-video-loop="true" background-size="contain"}
+
+# `summarize()` {.inverse}
+
+# {background-video="assets/05_summarise.mp4" background-video-loop="true" background-size="contain"}
+
+# `group_by()` |> `summarize()` {.inverse}
+
+# {background-video="assets/06_summarise_grouped.mp4" background-video-loop="true" background-size="contain"}
+
+# `arrange()` {.inverse}
+
+# {background-video="assets/03_arrange.mp4" background-video-loop="true" background-size="contain"}
+
+# Common Issues {.inverse}
+
+## How R handles NA values
+
+- SPSS has named NA values
+
+- In R, a value is only NA if it shows up in red (in the console) or light gray (in Quarto)
+
+## How R handles NA values
+
+You'll learn later to use functions from the `tidyr` package to deal with missing values:
+
+- `replace_na()` will replace existing `NA` values with your chosen values
+
+- `na_if()` will replace values you specify with `NA`
+
+## %in% operator
+
+> I’m wondering if you know why one needs to concatenate multiple observations in the filter function. For example, here’s a correct use of filter:
+
+```{r}
+#| eval: false
+#| echo: true
+filter(marital_status %in% c("Divorced", "Separated", "Widowed"))
+```
+
+## %in% operator
+
+> From what I understand of the concatenate function (from Excel), wouldn’t that basically mean R is looking at each observation in marital_status and seeing if that observation can be found anywhere inside "DivorcedSeparatedWidowed"? But when I try it without concatenating by doing this:
+
+```{r}
+#| eval: false
+#| echo: true
+filter(marital_status %in% ("DivorcedSeparatedWidowed"))
+```
+
+> I get an error message. Maybe the answer is "That’s just how R works," but I’m trying to build a solid mental model for these functions, so if there’s anything more to it, I’d love to better understand. Thanks!
+
+
+
+# Your Questions
+
+- Sequential summaries
+
+- Why not to set na.rm = TRUE by default
+
+# Typos happen to everone
+
+![](assets/david-asking-for-help.png)
+
+# Typos happen to everone
+
+::: {.large}
+```{r}
+#| eval: false
+#| echo: true
+
+get_acs(year = 2019,
+        geography = "county",
+        geometry = TRUE,
+        state =  "OR",
+        variables = "B01003_001") %>% 
+  clean_names() %>% 
+  mutate(name = str_remove(name, " County")) %>% 
+  rename(poulation = estimate,
+         county = name) %>% 
+  select(county, population)
+```
+:::
+
+
+# Next Week
+
+1. Course assignment: complete data viz lessons
+
+1. Project assignment: make a graph from your data
+
+

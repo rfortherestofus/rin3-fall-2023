@@ -89,6 +89,7 @@ geocoded_participants <- participants |>
           state = state_province,
           country = country,
           method = "iq") |> 
+  drop_na(long, lat) |> 
   st_as_sf(coords = c("long", "lat"),
            crs = 4326)
   
@@ -131,10 +132,13 @@ rin3_bar_chart <- function(df, x_var, number_of_breaks = 4) {
          x = NULL) +
     theme_minimal(base_family = "Inter Regular", base_size = 20) +
     theme(plot.title.position = "plot",
+          plot.caption = element_text(size = 14,
+                                      color = "grey50"),
           panel.grid.minor.x = element_blank(),
           panel.grid.major.x = element_blank(),
           panel.grid.minor.y = element_blank()) +
-    scale_y_continuous(breaks = pretty_breaks(number_of_breaks))
+    scale_y_continuous(breaks = pretty_breaks(number_of_breaks)) +
+    labs(caption = str_glue("n = {nrow(df)}"))
   
 }
 
@@ -236,7 +240,11 @@ Share with the people in your breakout room:
 [![](assets/rin3-course.png)](https://rfortherestofus.com/courses/r-in-3-months-fall-2023)
 
 ::: {.notes}
+Materials always ready one week ahead
+
 Courses are being re-recorded so please provide feedback
+
+Transcripts are auto generated and may contain minor inaccuracies.
 :::
 
 ## Captions
@@ -276,7 +284,11 @@ Courses are being re-recorded so please provide feedback
 ## Where Questions Go
 
 - Lesson-specific questions on lessons
+
+- Feedback about lessons on lessons as well
+
 - General questions in Discord
+
 
 ## Co-Working Sessions
 
@@ -300,7 +312,7 @@ https://us02web.zoom.us/j/87489928701?pwd=YnRhZWp6TnUvRllicmkvV1dVajZBUT09
 - Mistake on lessons
 - Tidyverse loading message
 - read.csv vs read_csv
-- How often to update packages
+- Dependency packages
 - Projects
 :::
 

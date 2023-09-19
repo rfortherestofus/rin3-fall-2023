@@ -37,6 +37,7 @@ $title-h1-font-size: 100px !default;
 
 // code blocks
 $code-block-bg: #F3F4F6;
+$code-block-font-size: 0.45em;
 
 
 /*-- scss:mixins --*/
@@ -170,7 +171,7 @@ h3.title {
 }
 
 .small code {
-  font-size: 13px;
+  font-size: 20px;
 }
 
 a,
