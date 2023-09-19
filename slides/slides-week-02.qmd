@@ -41,6 +41,10 @@ library(tidycensus)
 
 # Review of Functions {.inverse}
 
+# Cheatsheets
+
+[Download them for yourself!](https://github.com/rfortherestofus/rin3-fall-2023/blob/main/misc/beginner-cheatsheets.pdf)
+
 # `select()` {.inverse}
 
 # {background-video="assets/09_select.mp4" background-video-loop="true" background-size="contain"}
