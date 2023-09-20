@@ -30,14 +30,13 @@ library(tidycensus)
 
 # Agenda
 
-1. Review of `dplyr` functions
+1. Review of `dplyr` Functions
 
-1. Common issues
+1. Common Issues and Your Questions
 
-1. Your questions
+1. Next Week
 
-1. Next week
-
+# How Were the Lessons? {.inverse}
 
 # Review of Functions {.inverse}
 
@@ -48,7 +47,6 @@ library(tidycensus)
 # `select()` {.inverse}
 
 # {background-video="assets/09_select.mp4" background-video-loop="true" background-size="contain"}
-
 
 # `mutate()` {.inverse}
 
@@ -62,7 +60,7 @@ library(tidycensus)
 
 # {background-video="assets/05_summarise.mp4" background-video-loop="true" background-size="contain"}
 
-# `group_by()` |> `summarize()` {.inverse}
+# `group_by() |> summarize()` {.inverse}
 
 # {background-video="assets/06_summarise_grouped.mp4" background-video-loop="true" background-size="contain"}
 
@@ -70,7 +68,7 @@ library(tidycensus)
 
 # {background-video="assets/03_arrange.mp4" background-video-loop="true" background-size="contain"}
 
-# Common Issues {.inverse}
+# Common Issues and Your Questions {.inverse}
 
 ## How R handles NA values
 
@@ -86,6 +84,67 @@ You'll learn later to use functions from the `tidyr` package to deal with missin
 
 - `na_if()` will replace values you specify with `NA`
 
+## NA values
+
+> Is there some way to change the default behavior of summarize so that it ignores NAs without having to specify it specifically? I didn't know if there was something like a global variable that you can set in the R script file, or something within the RStudio environment or installed package?
+
+::: {.notes}
+Don't want to make your code not reproducible
+
+Gracielle: Yes! It’s common that people just drop the NAs and sometimes they are actually important 0s. I see that all the time on species occurrence data, where NAs are often used interchangeably for “we didn’t sample there” and “we sampled there but no species were found”.
+
+Libby: Are we missing a lot of values for "income" in our survey? Why? Which demographics are most likely to having missing income values? If we drop all these rows, are we now excluding a whole population group simply because they're less likely to disclose income on a survey?
+:::
+
+## Quotes
+
+## Needed to refer to non-existent things
+
+```{r}
+#| eval: false
+#| echo: true
+install.packages("tidyverse")
+```
+
+## Not needed to refer to existing things 
+
+::: {.fragment}
+```{r}
+#| eval: false
+#| echo: true
+library(tidyverse)
+```
+:::
+
+<br>
+
+::: {.fragment}
+```{r}
+#| eval: false
+#| echo: true
+penguins |> 
+  select(island)
+```
+:::
+
+## Needed when you're referring to text
+
+```{r}
+#| eval: false
+#| echo: true
+penguins |> 
+  filter(island == "Torgersen")
+```
+
+## Or the name of a file
+
+```{r}
+#| eval: false
+#| echo: true
+penguins <- read_csv(file = "data-raw/penguins.csv")
+```
+
+
 ## %in% operator
 
 > I’m wondering if you know why one needs to concatenate multiple observations in the filter function. For example, here’s a correct use of filter:
@@ -93,28 +152,63 @@ You'll learn later to use functions from the `tidyr` package to deal with missin
 ```{r}
 #| eval: false
 #| echo: true
-filter(marital_status %in% c("Divorced", "Separated", "Widowed"))
+penguins |> 
+  filter(island %in% c("Torgersen", "Biscoe"))
 ```
 
 ## %in% operator
 
-> From what I understand of the concatenate function (from Excel), wouldn’t that basically mean R is looking at each observation in marital_status and seeing if that observation can be found anywhere inside "DivorcedSeparatedWidowed"? But when I try it without concatenating by doing this:
+> From what I understand of the concatenate function (from Excel), wouldn’t that basically mean R is looking at each observation in island and seeing if that observation can be found anywhere inside "TorgersenBiscoe"? But when I try it without concatenating by doing this:
 
 ```{r}
 #| eval: false
 #| echo: true
-filter(marital_status %in% ("DivorcedSeparatedWidowed"))
+penguins |> 
+  filter(island %in% c("TorgersenBiscoe"))
 ```
 
 > I get an error message. Maybe the answer is "That’s just how R works," but I’m trying to build a solid mental model for these functions, so if there’s anything more to it, I’d love to better understand. Thanks!
 
+# Crosstabs
+
+```{r}
+penguins |> 
+  tabyl(species, island)
+```
+
+```{r}
+penguins |> 
+  count(species, island)
+```
+
+# `case_when()`
+
+```{r}
+penguins |>
+  mutate(weight_category = case_when(
+    body_mass_g > 4000 ~ "Over 4000 grams",
+    body_mass_g < 4000 & body_mass_g >= 3500 ~ "Between 3500 and 4000 grams",
+    body_mass_g < 3500 ~ "Less than 3500 grams"
+  ))
+```
 
 
-# Your Questions
+# How to change view outputs
 
-- Sequential summaries
+```{r}
+penguins |>
+  select(species, island) |> 
+  view()
+```
 
-- Why not to set na.rm = TRUE by default
+
+```{r}
+penguins |>
+  select(species, island) |> 
+  print(n = 100)
+```
+
+
 
 # Typos happen to everone
 
@@ -146,5 +240,9 @@ get_acs(year = 2019,
 1. Course assignment: complete data viz lessons
 
 1. Project assignment: make a graph from your data
+
+::: {.notes}
+Talk about when need to finalize project dataset
+:::
 
 

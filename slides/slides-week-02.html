@@ -398,11 +398,15 @@
 <section id="agenda" class="title-slide slide level1 center">
 <h1>Agenda</h1>
 <ol type="1">
-<li class="fragment"><p>Review of <code>dplyr</code> functions</p></li>
-<li class="fragment"><p>Common issues</p></li>
-<li class="fragment"><p>Your questions</p></li>
-<li class="fragment"><p>Next week</p></li>
+<li class="fragment"><p>Review of <code>dplyr</code> Functions</p></li>
+<li class="fragment"><p>Common Issues and Your Questions</p></li>
+<li class="fragment"><p>Next Week</p></li>
 </ol>
+</section>
+
+<section id="how-were-the-lessons" class="title-slide slide level1 inverse center">
+<h1>How Were the Lessons?</h1>
+
 </section>
 
 <section id="review-of-functions" class="title-slide slide level1 inverse center">
@@ -456,7 +460,7 @@
 </section>
 
 <section id="group_by-summarize" class="title-slide slide level1 inverse center">
-<h1><code>group_by()</code> |&gt; <code>summarize()</code></h1>
+<h1><code>group_by() |&gt; summarize()</code></h1>
 
 </section>
 
@@ -476,8 +480,8 @@
 </section>
 
 <section>
-<section id="common-issues" class="title-slide slide level1 inverse center">
-<h1>Common Issues</h1>
+<section id="common-issues-and-your-questions" class="title-slide slide level1 inverse center">
+<h1>Common Issues and Your Questions</h1>
 
 </section>
 <section id="how-r-handles-na-values" class="slide level2 center">
@@ -495,33 +499,244 @@
 <li class="fragment"><p><code>na_if()</code> will replace values you specify with <code>NA</code></p></li>
 </ul>
 </section>
+<section id="na-values" class="slide level2 center">
+<h2>NA values</h2>
+<blockquote>
+<p>Is there some way to change the default behavior of summarize so that it ignores NAs without having to specify it specifically? I didn’t know if there was something like a global variable that you can set in the R script file, or something within the RStudio environment or installed package?</p>
+</blockquote>
+<aside class="notes">
+<p>Don’t want to make your code not reproducible</p>
+<p>Gracielle: Yes! It’s common that people just drop the NAs and sometimes they are actually important 0s. I see that all the time on species occurrence data, where NAs are often used interchangeably for “we didn’t sample there” and “we sampled there but no species were found”.</p>
+<p>Libby: Are we missing a lot of values for “income” in our survey? Why? Which demographics are most likely to having missing income values? If we drop all these rows, are we now excluding a whole population group simply because they’re less likely to disclose income on a survey?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="quotes" class="slide level2 center">
+<h2>Quotes</h2>
+</section>
+<section id="needed-to-refer-to-non-existent-things" class="slide level2 center">
+<h2>Needed to refer to non-existent things</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="not-needed-to-refer-to-existing-things" class="slide level2 center">
+<h2>Not needed to refer to existing things</h2>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p><br></p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">select</span>(island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="needed-when-youre-referring-to-text" class="slide level2 center">
+<h2>Needed when you’re referring to text</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">filter</span>(island <span class="sc">==</span> <span class="st">"Torgersen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="or-the-name-of-a-file" class="slide level2 center">
+<h2>Or the name of a file</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data-raw/penguins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section id="in-operator" class="slide level2 center">
 <h2>%in% operator</h2>
 <blockquote>
 <p>I’m wondering if you know why one needs to concatenate multiple observations in the filter function. For example, here’s a correct use of filter:</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">filter</span>(marital_status <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Divorced"</span>, <span class="st">"Separated"</span>, <span class="st">"Widowed"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">filter</span>(island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Torgersen"</span>, <span class="st">"Biscoe"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="in-operator-1" class="slide level2 center">
 <h2>%in% operator</h2>
 <blockquote>
-<p>From what I understand of the concatenate function (from Excel), wouldn’t that basically mean R is looking at each observation in marital_status and seeing if that observation can be found anywhere inside “DivorcedSeparatedWidowed”? But when I try it without concatenating by doing this:</p>
+<p>From what I understand of the concatenate function (from Excel), wouldn’t that basically mean R is looking at each observation in island and seeing if that observation can be found anywhere inside “TorgersenBiscoe”? But when I try it without concatenating by doing this:</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">filter</span>(marital_status <span class="sc">%in%</span> (<span class="st">"DivorcedSeparatedWidowed"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">filter</span>(island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"TorgersenBiscoe"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote>
 <p>I get an error message. Maybe the answer is “That’s just how R works,” but I’m trying to build a solid mental model for these functions, so if there’s anything more to it, I’d love to better understand. Thanks!</p>
 </blockquote>
 </section></section>
-<section id="your-questions" class="title-slide slide level1 center">
-<h1>Your Questions</h1>
-<ul>
-<li class="fragment"><p>Sequential summaries</p></li>
-<li class="fragment"><p>Why not to set na.rm = TRUE by default</p></li>
-</ul>
+<section id="crosstabs" class="title-slide slide level1 center">
+<h1>Crosstabs</h1>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>   species Biscoe Dream Torgersen
+    Adelie     44    56        52
+ Chinstrap      0    68         0
+    Gentoo    124     0         0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  species   island        n
+  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;
+1 Adelie    Biscoe       44
+2 Adelie    Dream        56
+3 Adelie    Torgersen    52
+4 Chinstrap Dream        68
+5 Gentoo    Biscoe      124</code></pre>
+</div>
+</div>
+</section>
+
+<section id="case_when" class="title-slide slide level1 center">
+<h1><code>case_when()</code></h1>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 9
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 3 more variables: sex &lt;fct&gt;, year &lt;int&gt;, weight_category &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+
+<section id="how-to-change-view-outputs" class="title-slide slide level1 center">
+<h1>How to change view outputs</h1>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 2
+    species island   
+    &lt;fct&gt;   &lt;fct&gt;    
+  1 Adelie  Torgersen
+  2 Adelie  Torgersen
+  3 Adelie  Torgersen
+  4 Adelie  Torgersen
+  5 Adelie  Torgersen
+  6 Adelie  Torgersen
+  7 Adelie  Torgersen
+  8 Adelie  Torgersen
+  9 Adelie  Torgersen
+ 10 Adelie  Torgersen
+ 11 Adelie  Torgersen
+ 12 Adelie  Torgersen
+ 13 Adelie  Torgersen
+ 14 Adelie  Torgersen
+ 15 Adelie  Torgersen
+ 16 Adelie  Torgersen
+ 17 Adelie  Torgersen
+ 18 Adelie  Torgersen
+ 19 Adelie  Torgersen
+ 20 Adelie  Torgersen
+ 21 Adelie  Biscoe   
+ 22 Adelie  Biscoe   
+ 23 Adelie  Biscoe   
+ 24 Adelie  Biscoe   
+ 25 Adelie  Biscoe   
+ 26 Adelie  Biscoe   
+ 27 Adelie  Biscoe   
+ 28 Adelie  Biscoe   
+ 29 Adelie  Biscoe   
+ 30 Adelie  Biscoe   
+ 31 Adelie  Dream    
+ 32 Adelie  Dream    
+ 33 Adelie  Dream    
+ 34 Adelie  Dream    
+ 35 Adelie  Dream    
+ 36 Adelie  Dream    
+ 37 Adelie  Dream    
+ 38 Adelie  Dream    
+ 39 Adelie  Dream    
+ 40 Adelie  Dream    
+ 41 Adelie  Dream    
+ 42 Adelie  Dream    
+ 43 Adelie  Dream    
+ 44 Adelie  Dream    
+ 45 Adelie  Dream    
+ 46 Adelie  Dream    
+ 47 Adelie  Dream    
+ 48 Adelie  Dream    
+ 49 Adelie  Dream    
+ 50 Adelie  Dream    
+ 51 Adelie  Biscoe   
+ 52 Adelie  Biscoe   
+ 53 Adelie  Biscoe   
+ 54 Adelie  Biscoe   
+ 55 Adelie  Biscoe   
+ 56 Adelie  Biscoe   
+ 57 Adelie  Biscoe   
+ 58 Adelie  Biscoe   
+ 59 Adelie  Biscoe   
+ 60 Adelie  Biscoe   
+ 61 Adelie  Biscoe   
+ 62 Adelie  Biscoe   
+ 63 Adelie  Biscoe   
+ 64 Adelie  Biscoe   
+ 65 Adelie  Biscoe   
+ 66 Adelie  Biscoe   
+ 67 Adelie  Biscoe   
+ 68 Adelie  Biscoe   
+ 69 Adelie  Torgersen
+ 70 Adelie  Torgersen
+ 71 Adelie  Torgersen
+ 72 Adelie  Torgersen
+ 73 Adelie  Torgersen
+ 74 Adelie  Torgersen
+ 75 Adelie  Torgersen
+ 76 Adelie  Torgersen
+ 77 Adelie  Torgersen
+ 78 Adelie  Torgersen
+ 79 Adelie  Torgersen
+ 80 Adelie  Torgersen
+ 81 Adelie  Torgersen
+ 82 Adelie  Torgersen
+ 83 Adelie  Torgersen
+ 84 Adelie  Torgersen
+ 85 Adelie  Dream    
+ 86 Adelie  Dream    
+ 87 Adelie  Dream    
+ 88 Adelie  Dream    
+ 89 Adelie  Dream    
+ 90 Adelie  Dream    
+ 91 Adelie  Dream    
+ 92 Adelie  Dream    
+ 93 Adelie  Dream    
+ 94 Adelie  Dream    
+ 95 Adelie  Dream    
+ 96 Adelie  Dream    
+ 97 Adelie  Dream    
+ 98 Adelie  Dream    
+ 99 Adelie  Dream    
+100 Adelie  Dream    
+# ℹ 244 more rows</code></pre>
+</div>
+</div>
 </section>
 
 <section id="typos-happen-to-everone" class="title-slide slide level1 center">
@@ -533,16 +748,16 @@
 <h1>Typos happen to everone</h1>
 <div class="large">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">get_acs</span>(<span class="at">year =</span> <span class="dv">2019</span>,</span>
-<span id="cb3-2"><a href="#cb3-2"></a>        <span class="at">geography =</span> <span class="st">"county"</span>,</span>
-<span id="cb3-3"><a href="#cb3-3"></a>        <span class="at">geometry =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb3-4"><a href="#cb3-4"></a>        <span class="at">state =</span>  <span class="st">"OR"</span>,</span>
-<span id="cb3-5"><a href="#cb3-5"></a>        <span class="at">variables =</span> <span class="st">"B01003_001"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb3-7"><a href="#cb3-7"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">str_remove</span>(name, <span class="st">" County"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-8"><a href="#cb3-8"></a>  <span class="fu">rename</span>(<span class="at">poulation =</span> estimate,</span>
-<span id="cb3-9"><a href="#cb3-9"></a>         <span class="at">county =</span> name) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-10"><a href="#cb3-10"></a>  <span class="fu">select</span>(county, population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">get_acs</span>(<span class="at">year =</span> <span class="dv">2019</span>,</span>
+<span id="cb12-2"><a href="#cb12-2"></a>        <span class="at">geography =</span> <span class="st">"county"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3"></a>        <span class="at">geometry =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-4"><a href="#cb12-4"></a>        <span class="at">state =</span>  <span class="st">"OR"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5"></a>        <span class="at">variables =</span> <span class="st">"B01003_001"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">str_remove</span>(name, <span class="st">" County"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-8"><a href="#cb12-8"></a>  <span class="fu">rename</span>(<span class="at">poulation =</span> estimate,</span>
+<span id="cb12-9"><a href="#cb12-9"></a>         <span class="at">county =</span> name) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-10"><a href="#cb12-10"></a>  <span class="fu">select</span>(county, population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -553,6 +768,19 @@
 <li class="fragment"><p>Course assignment: complete data viz lessons</p></li>
 <li class="fragment"><p>Project assignment: make a graph from your data</p></li>
 </ol>
+<aside class="notes">
+<p>Talk about when need to finalize project dataset</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="footer footer-default">
 
 </div>
