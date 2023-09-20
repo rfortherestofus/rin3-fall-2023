@@ -739,6 +739,43 @@
 </div>
 </section>
 
+<section>
+<section id="valid-column-names" class="title-slide slide level1 center">
+<h1>Valid column names</h1>
+
+</section>
+<section id="not-valid" class="slide level2 center">
+<h2>Not valid</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">mutate</span>(How <span class="at">cute =</span> <span class="st">"Very cute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="valid" class="slide level2 center">
+<h2>Valid</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">How cute</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Very cute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="not-valid-1" class="slide level2 center">
+<h2>Not valid</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">mutate</span>(<span class="dv">3</span> <span class="ot">=</span> <span class="st">"Very cute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="valid-1" class="slide level2 center">
+<h2>Valid</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">3</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Very cute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="clean_names" class="slide level2 center">
+<h2><code>clean_names()</code></h2>
+<p>Use <code>clean_names()</code> to get valid and easy to work with column names</p>
+</section></section>
 <section id="typos-happen-to-everone" class="title-slide slide level1 center">
 <h1>Typos happen to everone</h1>
 
@@ -748,16 +785,16 @@
 <h1>Typos happen to everone</h1>
 <div class="large">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">get_acs</span>(<span class="at">year =</span> <span class="dv">2019</span>,</span>
-<span id="cb12-2"><a href="#cb12-2"></a>        <span class="at">geography =</span> <span class="st">"county"</span>,</span>
-<span id="cb12-3"><a href="#cb12-3"></a>        <span class="at">geometry =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb12-4"><a href="#cb12-4"></a>        <span class="at">state =</span>  <span class="st">"OR"</span>,</span>
-<span id="cb12-5"><a href="#cb12-5"></a>        <span class="at">variables =</span> <span class="st">"B01003_001"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">str_remove</span>(name, <span class="st">" County"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-8"><a href="#cb12-8"></a>  <span class="fu">rename</span>(<span class="at">poulation =</span> estimate,</span>
-<span id="cb12-9"><a href="#cb12-9"></a>         <span class="at">county =</span> name) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-10"><a href="#cb12-10"></a>  <span class="fu">select</span>(county, population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">get_acs</span>(<span class="at">year =</span> <span class="dv">2019</span>,</span>
+<span id="cb16-2"><a href="#cb16-2"></a>        <span class="at">geography =</span> <span class="st">"county"</span>,</span>
+<span id="cb16-3"><a href="#cb16-3"></a>        <span class="at">geometry =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb16-4"><a href="#cb16-4"></a>        <span class="at">state =</span>  <span class="st">"OR"</span>,</span>
+<span id="cb16-5"><a href="#cb16-5"></a>        <span class="at">variables =</span> <span class="st">"B01003_001"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-6"><a href="#cb16-6"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-7"><a href="#cb16-7"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">str_remove</span>(name, <span class="st">" County"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-8"><a href="#cb16-8"></a>  <span class="fu">rename</span>(<span class="at">poulation =</span> estimate,</span>
+<span id="cb16-9"><a href="#cb16-9"></a>         <span class="at">county =</span> name) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-10"><a href="#cb16-10"></a>  <span class="fu">select</span>(county, population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>

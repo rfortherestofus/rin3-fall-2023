@@ -71,3 +71,11 @@ penguins |>
 
 penguins |>
   print(n = 100)
+
+
+# Column names ------------------------------------------------------------
+
+read_csv("data-raw/column-names.csv")
+
+read_csv("data-raw/column-names.csv") |>
+  clean_names()

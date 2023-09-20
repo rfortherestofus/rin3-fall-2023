@@ -208,6 +208,50 @@ penguins |>
   print(n = 100)
 ```
 
+# Valid column names
+
+## Not valid
+
+```{r}
+#| eval: false
+#| echo: true
+penguins |> 
+  mutate(How cute = "Very cute")
+```
+
+## Valid
+
+```{r}
+#| eval: false
+#| echo: true
+penguins |> 
+  mutate(`How cute` = "Very cute")
+```
+
+## Not valid
+
+```{r}
+#| eval: false
+#| echo: true
+penguins |> 
+  mutate(3 = "Very cute")
+```
+
+## Valid
+
+```{r}
+#| eval: false
+#| echo: true
+penguins |> 
+  mutate(`3` = "Very cute")
+```
+
+## `clean_names()`
+
+Use `clean_names()` to get valid and easy to work with column names
+
+
+
 
 
 # Typos happen to everone
