@@ -14,6 +14,7 @@ execute:
   warning: false
   cache: false
   # eval: false
+  echo: true
 title-slide-attributes:
   data-background-image: assets/rru-hex-bg-gradient-dark.svg
   data-background-size: cover
@@ -30,13 +31,27 @@ library(tidycensus)
 
 # Agenda
 
+1. Housekeeping
+
 1. Review of `dplyr` Functions
 
 1. Common Issues and Your Questions
 
 1. Next Week
 
-# How Were the Lessons? {.inverse}
+::: {.notes}
+https://rin3fall2023.rfortherestofus.com/slides-week-02.html
+:::
+
+# Housekeeping {.inverse}
+
+- Questions on lessons? 
+
+- How were the lessons?
+
+- Questions on project assignments?
+
+- Discord
 
 # Review of Functions {.inverse}
 
@@ -169,14 +184,18 @@ penguins |>
 
 > I get an error message. Maybe the answer is "That’s just how R works," but I’m trying to build a solid mental model for these functions, so if there’s anything more to it, I’d love to better understand. Thanks!
 
-# Crosstabs
+## Crosstabs
 
 ```{r}
+#| echo: true
 penguins |> 
   tabyl(species, island)
 ```
 
+## Crosstabs
+
 ```{r}
+#| echo: true
 penguins |> 
   count(species, island)
 ```
@@ -184,16 +203,18 @@ penguins |>
 # `case_when()`
 
 ```{r}
+#| echo: true
 penguins |>
   mutate(weight_category = case_when(
     body_mass_g > 4000 ~ "Over 4000 grams",
     body_mass_g < 4000 & body_mass_g >= 3500 ~ "Between 3500 and 4000 grams",
     body_mass_g < 3500 ~ "Less than 3500 grams"
-  ))
+  )) |> 
+  select(body_mass_g, weight_category)
 ```
 
 
-# How to change view outputs
+## How to change view outputs
 
 ```{r}
 penguins |>
@@ -201,6 +222,7 @@ penguins |>
   view()
 ```
 
+## How to change view outputs
 
 ```{r}
 penguins |>
@@ -208,7 +230,7 @@ penguins |>
   print(n = 100)
 ```
 
-# Valid column names
+## Valid column names
 
 ## Not valid
 
@@ -250,9 +272,9 @@ penguins |>
 
 Use `clean_names()` to get valid and easy to work with column names
 
+## Sequential summaries
 
-
-
+> I'm just curious, so feel free to ignore if this is covered later. But, you mentioned that piping sequential summarizes into each other doesn't work to get a single table with multiple columns. Is there a way to do that? I didn't know if mutate would be able to handle taking in a tibble from summarize? I was guessing there must be some other way to combine tibbles? For example, if you were getting the mean bill length from the penguins data, but also wanted to get a mean bill length from some other bird dataset, and have these in the same table side by side (I googled it and it looked like there's a merge() function, but I didn't know if that was the best way to go about it in this case)
 
 # Typos happen to everone
 

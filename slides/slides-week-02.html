@@ -395,18 +395,46 @@
 </div>
 
 </section>
+<section class="slide level2 center">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(tidycensus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section id="agenda" class="title-slide slide level1 center">
 <h1>Agenda</h1>
 <ol type="1">
+<li class="fragment"><p>Housekeeping</p></li>
 <li class="fragment"><p>Review of <code>dplyr</code> Functions</p></li>
 <li class="fragment"><p>Common Issues and Your Questions</p></li>
 <li class="fragment"><p>Next Week</p></li>
 </ol>
+<aside class="notes">
+<p>https://rin3fall2023.rfortherestofus.com/slides-week-02.html</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
-<section id="how-were-the-lessons" class="title-slide slide level1 inverse center">
-<h1>How Were the Lessons?</h1>
-
+<section id="housekeeping" class="title-slide slide level1 inverse center">
+<h1>Housekeeping</h1>
+<ul>
+<li class="fragment"><p>Questions on lessons?</p></li>
+<li class="fragment"><p>How were the lessons?</p></li>
+<li class="fragment"><p>Questions on project assignments?</p></li>
+<li class="fragment"><p>Discord</p></li>
+</ul>
 </section>
 
 <section id="review-of-functions" class="title-slide slide level1 inverse center">
@@ -526,35 +554,35 @@
 <section id="needed-to-refer-to-non-existent-things" class="slide level2 center">
 <h2>Needed to refer to non-existent things</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="not-needed-to-refer-to-existing-things" class="slide level2 center">
 <h2>Not needed to refer to existing things</h2>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p><br></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">select</span>(island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">select</span>(island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="needed-when-youre-referring-to-text" class="slide level2 center">
 <h2>Needed when you’re referring to text</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">filter</span>(island <span class="sc">==</span> <span class="st">"Torgersen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">filter</span>(island <span class="sc">==</span> <span class="st">"Torgersen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="or-the-name-of-a-file" class="slide level2 center">
 <h2>Or the name of a file</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data-raw/penguins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data-raw/penguins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="in-operator" class="slide level2 center">
@@ -563,8 +591,8 @@
 <p>I’m wondering if you know why one needs to concatenate multiple observations in the filter function. For example, here’s a correct use of filter:</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">filter</span>(island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Torgersen"</span>, <span class="st">"Biscoe"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">filter</span>(island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Torgersen"</span>, <span class="st">"Biscoe"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="in-operator-1" class="slide level2 center">
@@ -573,16 +601,18 @@
 <p>From what I understand of the concatenate function (from Excel), wouldn’t that basically mean R is looking at each observation in island and seeing if that observation can be found anywhere inside “TorgersenBiscoe”? But when I try it without concatenating by doing this:</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">filter</span>(island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"TorgersenBiscoe"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">filter</span>(island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"TorgersenBiscoe"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote>
 <p>I get an error message. Maybe the answer is “That’s just how R works,” but I’m trying to build a solid mental model for these functions, so if there’s anything more to it, I’d love to better understand. Thanks!</p>
 </blockquote>
-</section></section>
-<section id="crosstabs" class="title-slide slide level1 center">
-<h1>Crosstabs</h1>
+</section>
+<section id="crosstabs" class="slide level2 center">
+<h2>Crosstabs</h2>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">tabyl</span>(species, island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   species Biscoe Dream Torgersen
     Adelie     44    56        52
@@ -590,7 +620,12 @@
     Gentoo    124     0         0</code></pre>
 </div>
 </div>
+</section>
+<section id="crosstabs-1" class="slide level2 center">
+<h2>Crosstabs</h2>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">count</span>(species, island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 3
   species   island        n
@@ -602,34 +637,50 @@
 5 Gentoo    Biscoe      124</code></pre>
 </div>
 </div>
-</section>
-
+</section></section>
+<section>
 <section id="case_when" class="title-slide slide level1 center">
 <h1><code>case_when()</code></h1>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">mutate</span>(<span class="at">weight_category =</span> <span class="fu">case_when</span>(</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    body_mass_g <span class="sc">&gt;</span> <span class="dv">4000</span> <span class="sc">~</span> <span class="st">"Over 4000 grams"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4"></a>    body_mass_g <span class="sc">&lt;</span> <span class="dv">4000</span> <span class="sc">&amp;</span> body_mass_g <span class="sc">&gt;=</span> <span class="dv">3500</span> <span class="sc">~</span> <span class="st">"Between 3500 and 4000 grams"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5"></a>    body_mass_g <span class="sc">&lt;</span> <span class="dv">3500</span> <span class="sc">~</span> <span class="st">"Less than 3500 grams"</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>  )) <span class="sc">|&gt;</span> </span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">select</span>(body_mass_g, weight_category)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 344 × 9
-   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
- 1 Adelie  Torgersen           39.1          18.7               181        3750
- 2 Adelie  Torgersen           39.5          17.4               186        3800
- 3 Adelie  Torgersen           40.3          18                 195        3250
- 4 Adelie  Torgersen           NA            NA                  NA          NA
- 5 Adelie  Torgersen           36.7          19.3               193        3450
- 6 Adelie  Torgersen           39.3          20.6               190        3650
- 7 Adelie  Torgersen           38.9          17.8               181        3625
- 8 Adelie  Torgersen           39.2          19.6               195        4675
- 9 Adelie  Torgersen           34.1          18.1               193        3475
-10 Adelie  Torgersen           42            20.2               190        4250
-# ℹ 334 more rows
-# ℹ 3 more variables: sex &lt;fct&gt;, year &lt;int&gt;, weight_category &lt;chr&gt;</code></pre>
+<pre><code># A tibble: 344 × 2
+   body_mass_g weight_category            
+         &lt;int&gt; &lt;chr&gt;                      
+ 1        3750 Between 3500 and 4000 grams
+ 2        3800 Between 3500 and 4000 grams
+ 3        3250 Less than 3500 grams       
+ 4          NA &lt;NA&gt;                       
+ 5        3450 Less than 3500 grams       
+ 6        3650 Between 3500 and 4000 grams
+ 7        3625 Between 3500 and 4000 grams
+ 8        4675 Over 4000 grams            
+ 9        3475 Less than 3500 grams       
+10        4250 Over 4000 grams            
+# ℹ 334 more rows</code></pre>
 </div>
 </div>
 </section>
-
-<section id="how-to-change-view-outputs" class="title-slide slide level1 center">
-<h1>How to change view outputs</h1>
+<section id="how-to-change-view-outputs" class="slide level2 center">
+<h2>How to change view outputs</h2>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">select</span>(species, island) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">view</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="how-to-change-view-outputs-1" class="slide level2 center">
+<h2>How to change view outputs</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">select</span>(species, island) <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 2
     species island   
@@ -738,43 +789,46 @@
 </div>
 </div>
 </section>
-
-<section>
-<section id="valid-column-names" class="title-slide slide level1 center">
-<h1>Valid column names</h1>
-
+<section id="valid-column-names" class="slide level2 center">
+<h2>Valid column names</h2>
 </section>
 <section id="not-valid" class="slide level2 center">
 <h2>Not valid</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">mutate</span>(How <span class="at">cute =</span> <span class="st">"Very cute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">mutate</span>(How <span class="at">cute =</span> <span class="st">"Very cute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="valid" class="slide level2 center">
 <h2>Valid</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">How cute</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Very cute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">How cute</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Very cute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="not-valid-1" class="slide level2 center">
 <h2>Not valid</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">mutate</span>(<span class="dv">3</span> <span class="ot">=</span> <span class="st">"Very cute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">mutate</span>(<span class="dv">3</span> <span class="ot">=</span> <span class="st">"Very cute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="valid-1" class="slide level2 center">
 <h2>Valid</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">3</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Very cute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">3</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Very cute"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="clean_names" class="slide level2 center">
 <h2><code>clean_names()</code></h2>
 <p>Use <code>clean_names()</code> to get valid and easy to work with column names</p>
+</section>
+<section id="sequential-summaries" class="slide level2 center">
+<h2>Sequential summaries</h2>
+<blockquote>
+<p>I’m just curious, so feel free to ignore if this is covered later. But, you mentioned that piping sequential summarizes into each other doesn’t work to get a single table with multiple columns. Is there a way to do that? I didn’t know if mutate would be able to handle taking in a tibble from summarize? I was guessing there must be some other way to combine tibbles? For example, if you were getting the mean bill length from the penguins data, but also wanted to get a mean bill length from some other bird dataset, and have these in the same table side by side (I googled it and it looked like there’s a merge() function, but I didn’t know if that was the best way to go about it in this case)</p>
+</blockquote>
 </section></section>
 <section id="typos-happen-to-everone" class="title-slide slide level1 center">
 <h1>Typos happen to everone</h1>
@@ -785,16 +839,16 @@
 <h1>Typos happen to everone</h1>
 <div class="large">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">get_acs</span>(<span class="at">year =</span> <span class="dv">2019</span>,</span>
-<span id="cb16-2"><a href="#cb16-2"></a>        <span class="at">geography =</span> <span class="st">"county"</span>,</span>
-<span id="cb16-3"><a href="#cb16-3"></a>        <span class="at">geometry =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb16-4"><a href="#cb16-4"></a>        <span class="at">state =</span>  <span class="st">"OR"</span>,</span>
-<span id="cb16-5"><a href="#cb16-5"></a>        <span class="at">variables =</span> <span class="st">"B01003_001"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-6"><a href="#cb16-6"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb16-7"><a href="#cb16-7"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">str_remove</span>(name, <span class="st">" County"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-8"><a href="#cb16-8"></a>  <span class="fu">rename</span>(<span class="at">poulation =</span> estimate,</span>
-<span id="cb16-9"><a href="#cb16-9"></a>         <span class="at">county =</span> name) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-10"><a href="#cb16-10"></a>  <span class="fu">select</span>(county, population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">get_acs</span>(<span class="at">year =</span> <span class="dv">2019</span>,</span>
+<span id="cb22-2"><a href="#cb22-2"></a>        <span class="at">geography =</span> <span class="st">"county"</span>,</span>
+<span id="cb22-3"><a href="#cb22-3"></a>        <span class="at">geometry =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb22-4"><a href="#cb22-4"></a>        <span class="at">state =</span>  <span class="st">"OR"</span>,</span>
+<span id="cb22-5"><a href="#cb22-5"></a>        <span class="at">variables =</span> <span class="st">"B01003_001"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-6"><a href="#cb22-6"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb22-7"><a href="#cb22-7"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">str_remove</span>(name, <span class="st">" County"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-8"><a href="#cb22-8"></a>  <span class="fu">rename</span>(<span class="at">poulation =</span> estimate,</span>
+<span id="cb22-9"><a href="#cb22-9"></a>         <span class="at">county =</span> name) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-10"><a href="#cb22-10"></a>  <span class="fu">select</span>(county, population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
