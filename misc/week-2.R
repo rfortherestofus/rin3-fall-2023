@@ -8,7 +8,23 @@ penguins <- read_csv(file = "data-raw/penguins.csv")
 penguins
 
 penguins |>
-  mutate(not_actually_na = "NA")
+  mutate(not_actually_na = "NA") |>
+  mutate(actually_na = na_if(not_actually_na, "NA")) |>
+  mutate(really_not_na = replace_na(actually_na, "NA"))
+
+penguins |>
+  drop_na(body_mass_g) |>
+  drop_na(sex)
+
+penguins |>
+  drop_na(body_mass_g, sex)
+
+penguins |>
+  filter(!is.na(bill_length_mm))
+
+penguins |>
+  # drop_na(bill_length_mm) |>
+  count(species)
 
 
 
@@ -59,15 +75,23 @@ penguins |>
 
 # case_when() -------------------------------------------------------------
 
-penguins |>
+penguins <- penguins |>
   mutate(weight_category = case_when(
     body_mass_g > 4000 ~ "Over 4000 grams",
     body_mass_g < 4000 & body_mass_g >= 3500 ~ "Between 3500 and 4000 grams",
-    body_mass_g < 3500 ~ "Less than 3500 grams"
+    body_mass_g < 3500 ~ "Less than 3500 grams",
+    is.na(body_mass_g) ~ "Missing data",
+    .default = "Exactly 4000 grams"
   ))
+
+penguins |>
+  mutate(weight_category = if_else(body_mass_g > 4000, true = "Over 4000 gramts", false = "Under or equal to 4000 grams"))
 
 
 # Viewing your dataset ----------------------------------------------------
+
+penguins |>
+  select(species, island)
 
 penguins |>
   print(n = 100)
@@ -75,7 +99,9 @@ penguins |>
 
 # Column names ------------------------------------------------------------
 
-read_csv("data-raw/column-names.csv")
+read_csv("data-raw/column-names.csv") |>
+  rename(how_cute = `How Cute`)
 
 read_csv("data-raw/column-names.csv") |>
-  clean_names()
+  clean_names() |>
+

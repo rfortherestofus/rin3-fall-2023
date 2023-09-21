@@ -44,7 +44,7 @@ library(tidycensus)
 https://rin3fall2023.rfortherestofus.com/slides-week-02.html
 :::
 
-# Housekeeping {.inverse}
+# Housekeeping
 
 - Questions on lessons? 
 
