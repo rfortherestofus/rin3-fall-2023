@@ -29,3 +29,7 @@ editor_options:
 ## Tip #2: lkdajfkladfj
 
 ## Tip #3: lkdajfkladfj
+
+## Certain geoms Require Certain Aesthetic Properties
+
+- Line charts
