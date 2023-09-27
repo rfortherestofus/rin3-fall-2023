@@ -21,3 +21,11 @@ title-slide-attributes:
 editor_options: 
   chunk_output_type: console
 ---
+
+# General Tips {.inverse}
+
+## Tip #1: lkdajfkladfj
+
+## Tip #2: lkdajfkladfj
+
+## Tip #3: lkdajfkladfj
