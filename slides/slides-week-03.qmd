@@ -64,6 +64,11 @@ https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/misc/media
 
 1. Wrapping long text in charts
 
+1. Font size
+
+1. How to center text in bar charts
+
+1. Width of bars in bar charts
 
 
 # General Tips {.inverse}

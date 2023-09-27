@@ -44,3 +44,40 @@ ggplot(data = gapminder_wrapped,
            y = lifeExp)) +
   geom_line() +
   facet_wrap(vars(country_wrapped))
+
+
+# Font Size ---------------------------------------------------------------
+
+ggplot(data = penguins_bill_length_by_island,
+       aes(x = island,
+           y = mean_bill_length,
+           label = mean_bill_length)) +
+  geom_col() +
+  geom_text(size = 20 / .pt) +
+  theme_minimal(base_size = 20)
+
+
+# Center Text in Bar Chart ------------------------------------------------
+
+ggplot(data = penguins_bill_length_by_island,
+       aes(x = island,
+           y = mean_bill_length,
+           label = mean_bill_length)) +
+  geom_col() +
+  geom_text(size = 20 / .pt,
+            position=position_stack(vjust=0.5)) +
+  theme_minimal(base_size = 20)
+
+
+# Bar Chart Width ---------------------------------------------------------
+
+ggplot(data = penguins_bill_length_by_island,
+       aes(x = island,
+           y = mean_bill_length,
+           label = mean_bill_length)) +
+  geom_col(width = 0.9) +
+  geom_text(size = 20 / .pt,
+            position=position_stack(vjust=0.5)) +
+  theme_minimal(base_size = 20)
+
+
