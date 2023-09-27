@@ -22,6 +22,50 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r}
+#| echo: false
+library(tidyverse)
+library(palmerpenguins)
+```
+
+
+# Agenda
+
+1. Housekeeping
+
+1. Data viz exercise
+
+1. Data viz tips
+
+1. General tips
+
+1. Next week
+
+# Housekeeping
+
+Website issues (sorry!)
+
+# Data Viz Exercise {.inverse}
+
+## Data Viz Exercise
+
+![](assets/median-income-example.png)
+
+::: {.notes}
+https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/misc/median-income-viz.R
+:::
+
+
+# Data Viz Tips
+
+1. Certain `geoms` require certain aesthetic properties
+
+1. Ordering bar charts
+
+1. Wrapping long text in charts
+
+
+
 # General Tips {.inverse}
 
 ## Tip #1: lkdajfkladfj
@@ -30,6 +74,4 @@ editor_options:
 
 ## Tip #3: lkdajfkladfj
 
-## Certain geoms Require Certain Aesthetic Properties
 
-- Line charts

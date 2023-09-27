@@ -1,3 +1,9 @@
+# Your job is to update the TODOs below to recreate this visualization
+# https://show.rfor.us/4MwDlgt2
+
+# This is part of Oregon by the Numbers
+# See https://www.tfff.org/oregon-numbers/
+
 library(tidyverse)
 library(scales)
 library(obtn)
