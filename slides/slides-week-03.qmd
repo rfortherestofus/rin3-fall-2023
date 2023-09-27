@@ -74,4 +74,12 @@ https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/misc/media
 
 ## Tip #3: lkdajfkladfj
 
+# Next Week
+
+You'll be learning about Quarto!
+
+- Course assignment: learn the basics of Quarto
+
+- Project assignment: take what you've done so far and turn it into a Quarto document
+
 
