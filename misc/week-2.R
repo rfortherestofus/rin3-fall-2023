@@ -48,10 +48,16 @@ penguins_2007 <- penguins |>
 penguins_2008 <- penguins |>
   filter(year == 2008)
 
-penguins_2007 |>
-  summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE),
-            max_bill_depth = max(bill_depth_mm, na.rm = TRUE))
+penguins_2007_bill_length <- penguins_2007 |>
+  summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE)) |>
+  mutate(year = 2007)
 
+penguins_2008_bill_length <- penguins_2008 |>
+  summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE)) |>
+  mutate(year = 2008)
+
+penguins_2007_bill_length |>
+  bind_rows(penguins_2008_bill_length)
 
 # %in% --------------------------------------------------------------------
 
