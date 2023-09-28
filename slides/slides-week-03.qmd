@@ -84,6 +84,10 @@ all library() calls at the top, no install.packages() in scripts and why, no rm(
 
 ## Tip #2: Project Management and Naming Conventions
 
+::: {.notes}
+There is one other general thing I'd put under Gracielle's naming conventions area: I'm seeing people elect to use backticks instead of cleaning up their column names, and I'd love to heavily discourage that 
+:::
+
 ## Tip #3: Commenting Best Practices
 
 ::: {.notes}
@@ -99,6 +103,12 @@ Bonus tip: this time next month, you won’t know how any of the code you wrote 
 Why it’s good to share data dictionaries, data sources, or readmes (like tidytuesday has!) along with data sets you use (because it’s hard for anyone to help you with code when they don’t know what the data means).
 When you’re learning and using public data, ok to put a link in comment to where you got the data or a readme
 When you’re sharing data with colleagues, great to have a readme.txt file inside your project folder or data folder that explains your data
+:::
+
+## Tip #5: There is No Right Way to Do Anything
+
+::: {.notes}
+My last "general" tip I might just add verbally at the end is that there is no "right way" to do anything in programming. I've had some students who are just like me when I was learning, they want to know if they did it the right way, the absolute best way, the MOST efficient way. But there is no right way! There are many, many ways to do the same things in programming, and however you get it to work is the right way for now. If it runs, it runs, and if you learn something later that improves it, that's great.
 :::
 
 # Next Week
