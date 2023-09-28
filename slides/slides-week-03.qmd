@@ -72,9 +72,28 @@ https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/misc/media
 
 ## Tip #1: Good Script Etiquette
 
-## Tip #2: Commenting Best Practices
+::: {.notes}
+all library() calls at the top, no install.packages() in scripts and why, no rm(list=ls()) and why (unless you will cover this already), and no setwd() and why
+:::
 
-## Tip #3: Data Needs Context
+## Tip #2: Project Management and Naming Conventions
+
+## Tip #3: Commenting Best Practices
+
+::: {.notes}
+Comments for yourself while learning - what each function does
+Comments for your coaches and yourself - what each query “should” do in plain, specific language so we can help
+Comments for colleagues and yourself - WHY you’re doing what you’re doing
+Bonus tip: this time next month, you won’t know how any of the code you wrote today works or why you did any of it. Comments are you helping yourself as much as they’re you helping others
+:::
+
+## Tip #4: Data Needs Context
+
+::: {.notes}
+Why it’s good to share data dictionaries, data sources, or readmes (like tidytuesday has!) along with data sets you use (because it’s hard for anyone to help you with code when they don’t know what the data means).
+When you’re learning and using public data, ok to put a link in comment to where you got the data or a readme
+When you’re sharing data with colleagues, great to have a readme.txt file inside your project folder or data folder that explains your data
+:::
 
 # Next Week
 
