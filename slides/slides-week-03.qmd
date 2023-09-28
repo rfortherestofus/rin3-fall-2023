@@ -40,6 +40,12 @@ library(palmerpenguins)
 
 5.  Next week
 
+::: {.notes}
+https://rin3fall2023.rfortherestofus.com/slides-week-03.html
+:::
+
+
+
 # Housekeeping
 
 Website issues (sorry!)
