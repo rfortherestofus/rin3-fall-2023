@@ -1,5 +1,5 @@
 ---
-title: R in 3 Months Week 4 (Data Wrangling)
+title: R in 3 Months Week 4 (Quarto)
 format:
   rfortherestofus-slides-revealjs:
     menu: false
@@ -55,6 +55,10 @@ https://rin3fall2023.rfortherestofus.com/slides-week-04.html
 # Quarto Exercise {.inverse}
 
 ## Quarto Exercise
+
+1. Copy the code from [this Quarto document](https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/misc/no-render.qmd). Figure out why it won't render and change it so that it will!
+
+1. Copy the code from [this second Quarto document](https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/misc/guess-what.qmd). There are a series of questions in it. Tackle them one by one, making changes to the document as you do so.
 
 
 
@@ -116,6 +120,6 @@ HTML Themes: https://quarto.org/docs/output-formats/html-themes.html
 
 # Next Week
 
-- Catch-up week!
+- Catch-up week! No live session but co-working sessions are happening.
 
-- For following week, you will be learning to use Git and GitHub. 
+- For following week, you will be learning to use Git and GitHub. Lessons are up now so you can start whenever you would like to!
