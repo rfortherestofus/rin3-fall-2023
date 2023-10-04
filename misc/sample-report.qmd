@@ -1,0 +1,9 @@
+---
+title: "Sample Report"
+format: html
+---
+
+```{r}
+source("import-penguins-data.R")
+```
+

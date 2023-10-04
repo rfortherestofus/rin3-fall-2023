@@ -4,11 +4,12 @@ library(gapminder)
 
 # Line Charts -------------------------------------------------------------
 
-gapminder
+data(gapminder)
 
 ggplot(data = gapminder,
        aes(x = year,
-           y = lifeExp)) +
+           y = lifeExp,
+           group = country)) +
   geom_line()
 
 
@@ -19,7 +20,8 @@ penguins <- read_csv("data-raw/penguins.csv")
 penguins_bill_length_by_island <- penguins |>
   group_by(island) |>
   summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE)) |>
-  mutate(island = fct_relevel(island, "Torgersen", "Dream", "Biscoe"))
+  mutate(island = fct_reorder(island, mean_bill_length))
+  # mutate(island = fct_relevel(island, "Torgersen", "Dream", "Biscoe"))
 
 ggplot(data = penguins_bill_length_by_island,
        aes(x = island,
@@ -75,8 +77,8 @@ ggplot(data = penguins_bill_length_by_island,
        aes(x = island,
            y = mean_bill_length,
            label = mean_bill_length)) +
-  geom_col(width = 0.9) +
-  geom_text(size = 20 / .pt,
+  geom_col(width = 0.5) +
+  geom_text(size = 3,
             position=position_stack(vjust=0.5)) +
   theme_minimal(base_size = 20)
 

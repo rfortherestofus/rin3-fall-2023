@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="slides-week-03_files/libs/clipboard/clipboard.min.js"></script>
-<script src="slides-week-03_files/libs/quarto-html/tabby.min.js"></script>
-<script src="slides-week-03_files/libs/quarto-html/popper.min.js"></script>
-<script src="slides-week-03_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="slides-week-03_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="slides-week-03_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides-week-03_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="slides-week-03_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="slides-week-04_files/libs/clipboard/clipboard.min.js"></script>
+<script src="slides-week-04_files/libs/quarto-html/tabby.min.js"></script>
+<script src="slides-week-04_files/libs/quarto-html/popper.min.js"></script>
+<script src="slides-week-04_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="slides-week-04_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="slides-week-04_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="slides-week-04_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="slides-week-04_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.353">
 
-  <title>R in 3 Months Week 3 (Data Visualization)</title>
+  <title>R in 3 Months Week 4 (Data Wrangling)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="slides-week-03_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="slides-week-03_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="slides-week-04_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="slides-week-04_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -28,12 +28,77 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="slides-week-03_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="slides-week-03_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="slides-week-03_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="slides-week-03_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="slides-week-03_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="slides-week-04_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="slides-week-04_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="slides-week-04_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="slides-week-04_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="slides-week-04_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -324,7 +389,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="assets/rru-hex-bg-gradient-dark.svg" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">R in 3 Months Week 3 (Data Visualization)</h1>
+  <h1 class="title">R in 3 Months Week 4 (Data Wrangling)</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -334,13 +399,13 @@
 <h1>Agenda</h1>
 <ol type="1">
 <li class="fragment"><p>Housekeeping</p></li>
-<li class="fragment"><p>Data viz exercise</p></li>
-<li class="fragment"><p>Data viz tips</p></li>
-<li class="fragment"><p>General tips</p></li>
+<li class="fragment"><p>Quarto Exercise</p></li>
+<li class="fragment"><p>Quarto Tips</p></li>
+<li class="fragment"><p>General Tip</p></li>
 <li class="fragment"><p>Next week</p></li>
 </ol>
 <aside class="notes">
-<p>https://rin3fall2023.rfortherestofus.com/slides-week-03.html</p>
+<p>https://rin3fall2023.rfortherestofus.com/slides-week-04.html</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -356,52 +421,25 @@
 
 <section id="housekeeping" class="title-slide slide level1 center">
 <h1>Housekeeping</h1>
-<p>Website issues (sorry!)</p>
-</section>
-
-<section>
-<section id="data-viz-exercise" class="title-slide slide level1 inverse center">
-<h1>Data Viz Exercise</h1>
-
-</section>
-<section id="data-viz-exercise-1" class="slide level2 center">
-<h2>Data Viz Exercise</h2>
-
-<img data-src="assets/median-income-example.png" class="r-stretch"><aside class="notes">
-<p>https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/misc/median-income-viz.R</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section id="data-viz-tips" class="title-slide slide level1 center">
-<h1>Data Viz Tips</h1>
 <ol type="1">
-<li class="fragment"><p>Certain <code>geoms</code> require certain aesthetic properties</p></li>
-<li class="fragment"><p>Ordering bar charts</p></li>
-<li class="fragment"><p>Wrapping long text in charts</p></li>
-<li class="fragment"><p>Font size</p></li>
-<li class="fragment"><p>How to center text in bar charts</p></li>
-<li class="fragment"><p>Width of bars in bar charts</p></li>
+<li class="fragment"><p>When you submit project assignments, in order to keep the workload manageable for Libby and Gracielle, please limit yourself to 1 or 2 questions</p></li>
+<li class="fragment"><p>If you have additional or more advanced questions you want help with, please post in Discord!</p></li>
 </ol>
 </section>
 
 <section>
-<section id="general-tips" class="title-slide slide level1 inverse center">
-<h1>General Tips</h1>
+<section id="quarto-exercise" class="title-slide slide level1 inverse center">
+<h1>Quarto Exercise</h1>
 
 </section>
-<section id="tip-1-good-script-etiquette" class="slide level2 center">
-<h2>Tip #1: Good Script Etiquette</h2>
+<section id="quarto-exercise-1" class="slide level2 center">
+<h2>Quarto Exercise</h2>
+</section></section>
+<section>
+<section id="quarto-tips" class="title-slide slide level1 inverse center">
+<h1>Quarto Tips</h1>
 <aside class="notes">
-<p>all library() calls at the top, no install.packages() in scripts and why, no rm(list=ls()) and why (unless you will cover this already), and no setwd() and why</p>
+<p>Talk about parameterized reporting making it worth it</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -414,10 +452,41 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="tip-2-project-management-and-naming-conventions" class="slide level2 center">
-<h2>Tip #2: Project Management and Naming Conventions</h2>
+<section id="markdown-text-shows-up-in-many-places" class="slide level2 center">
+<h2>Markdown Text Shows Up in Many Places!</h2>
+<ol type="1">
+<li class="fragment"><p>Discord</p></li>
+<li class="fragment"><p>Lesson comments</p></li>
+</ol>
+</section>
+<section id="quarto-tips-1" class="slide level2 center">
+<h2>Quarto Tips</h2>
+</section>
+<section id="how-to-structure-your-quarto-documents" class="slide level2 center">
+<h2>How to structure your Quarto documents</h2>
+<ol type="1">
+<li class="fragment"><p>Load packages at top</p></li>
+<li class="fragment"><p>Import data at top</p></li>
+<li class="fragment"><p>Code chunks used to make outputs (graphs, tables, maps, etc)</p></li>
+<li class="fragment"><p>I also do data cleaning/tidying in a separate R script file (you’ll learn about this soon)</p></li>
+</ol>
+</section>
+<section id="how-to-load-code-in-r-script-files" class="slide level2 center">
+<h2>How to load code in R script files</h2>
+</section>
+<section id="how-to-change-the-size-of-plots-in-quarto-documents" class="slide level2 center">
+<h2>How to change the size of plots in Quarto documents</h2>
 <aside class="notes">
-<p>There is one other general thing I’d put under Gracielle’s naming conventions area: I’m seeing people elect to use backticks instead of cleaning up their column names, and I’d love to heavily discourage that</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span> </span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> island, </span>
+<span id="cb1-4"><a href="#cb1-4"></a>             <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="slides-week-04_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+</div>
+</div>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -430,42 +499,14 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="tip-3-commenting-best-practices" class="slide level2 center">
-<h2>Tip #3: Commenting Best Practices</h2>
-<aside class="notes">
-<p>Comments for yourself while learning - what each function does Comments for your coaches and yourself - what each query “should” do in plain, specific language so we can help Comments for colleagues and yourself - WHY you’re doing what you’re doing Bonus tip: this time next month, you won’t know how any of the code you wrote today works or why you did any of it. Comments are you helping yourself as much as they’re you helping others</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="how-to-make-multi-column-layouts-in-quarto-documents" class="slide level2 center">
+<h2>How to make multi-column layouts in Quarto documents</h2>
 </section>
-<section id="tip-4-data-needs-context" class="slide level2 center">
-<h2>Tip #4: Data Needs Context</h2>
+<section id="how-to-change-the-look-and-feel-of-quarto-documents" class="slide level2 center">
+<h2>How to change the look and feel of Quarto documents</h2>
 <aside class="notes">
-<p>Why it’s good to share data dictionaries, data sources, or readmes (like tidytuesday has!) along with data sets you use (because it’s hard for anyone to help you with code when they don’t know what the data means). When you’re learning and using public data, ok to put a link in comment to where you got the data or a readme When you’re sharing data with colleagues, great to have a readme.txt file inside your project folder or data folder that explains your data</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="tip-5-there-is-no-right-way-to-do-anything" class="slide level2 center">
-<h2>Tip #5: There is No Right Way to Do Anything</h2>
-<aside class="notes">
-<p>My last “general” tip I might just add verbally at the end is that there is no “right way” to do anything in programming. I’ve had some students who are just like me when I was learning, they want to know if they did it the right way, the absolute best way, the MOST efficient way. But there is no right way! There are many, many ways to do the same things in programming, and however you get it to work is the right way for now. If it runs, it runs, and if you learn something later that improves it, that’s great.</p>
+<p>Custom CSS: https://quarto.org/docs/output-formats/html-basics.html#css-styles</p>
+<p>HTML Themes: https://quarto.org/docs/output-formats/html-themes.html</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -478,12 +519,22 @@
           display:block!important;
       }</style></aside>
 </section></section>
+<section>
+<section id="general-tip" class="title-slide slide level1 inverse center">
+<h1>General Tip</h1>
+
+</section>
+<section id="how-to-make-sense-of-r-help-docs" class="slide level2 center">
+<h2>How to Make Sense of R Help Docs</h2>
+<blockquote>
+<p>I looked into the geomtextpath package and even found a fairly helpful guide (https://cran.r-project.org/web/packages/geomtextpath/vignettes/geomtextpath.html) but I’m still at a loss on how to incorporate the names into the lines themselves. I wish I were better at understanding the Help guides.</p>
+</blockquote>
+</section></section>
 <section id="next-week" class="title-slide slide level1 center">
 <h1>Next Week</h1>
-<p>You’ll be learning about Quarto!</p>
 <ul>
-<li class="fragment"><p>Course assignment: learn the basics of Quarto</p></li>
-<li class="fragment"><p>Project assignment: take what you’ve done so far and turn it into a Quarto document</p></li>
+<li class="fragment"><p>Catch-up week!</p></li>
+<li class="fragment"><p>For following week, you will be learning to use Git and GitHub.</p></li>
 </ul>
 <div class="footer footer-default">
 
@@ -493,19 +544,19 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="slides-week-03_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="slides-week-04_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="slides-week-03_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="slides-week-03_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="slides-week-03_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="slides-week-03_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="slides-week-03_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="slides-week-04_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="slides-week-04_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="slides-week-04_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="slides-week-04_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="slides-week-04_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="slides-week-03_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="slides-week-03_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="slides-week-03_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="slides-week-03_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="slides-week-04_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="slides-week-04_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="slides-week-04_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="slides-week-04_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

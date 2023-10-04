@@ -1,0 +1,121 @@
+---
+title: R in 3 Months Week 4 (Data Wrangling)
+format:
+  rfortherestofus-slides-revealjs:
+    menu: false
+    progress: true
+    slide-number: true
+    show-slide-number: print
+    center: true
+    incremental: true
+    auto-animate: true
+execute: 
+  message: false
+  warning: false
+  cache: false
+  # eval: false
+  echo: true
+title-slide-attributes:
+  data-background-image: assets/rru-hex-bg-gradient-dark.svg
+  data-background-size: cover
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(palmerpenguins)
+```
+
+# Agenda
+
+1. Housekeeping
+
+1. Quarto Exercise
+
+1. Quarto Tips
+
+1. General Tip
+
+1. Next week
+
+::: {.notes}
+https://rin3fall2023.rfortherestofus.com/slides-week-04.html
+:::
+
+
+
+# Housekeeping
+
+1. When you submit project assignments, in order to keep the workload manageable for Libby and Gracielle, please limit yourself to 1 or 2 questions
+
+1. If you have additional or more advanced questions you want help with, please post in Discord!
+
+# Quarto Exercise {.inverse}
+
+## Quarto Exercise
+
+
+
+# Quarto Tips {.inverse}
+
+::: {.notes}
+Talk about parameterized reporting making it worth it
+:::
+
+## Markdown Text Shows Up in Many Places!
+
+1. Discord
+
+1. Lesson comments
+
+## Quarto Tips
+
+## How to structure your Quarto documents
+
+1. Load packages at top
+
+1. Import data at top
+
+1. Code chunks used to make outputs (graphs, tables, maps, etc)
+
+1. I also do data cleaning/tidying in a separate R script file (you'll learn about this soon)
+
+## How to load code in R script files
+
+## How to change the size of plots in Quarto documents
+
+::: {.notes}
+```{r}
+penguins |> 
+  count(island) |> 
+  ggplot(aes(x = island, 
+             y = n)) +
+  geom_col()
+```
+:::
+
+## How to make multi-column layouts in Quarto documents
+
+## How to change the look and feel of Quarto documents
+
+::: {.notes}
+Custom CSS: https://quarto.org/docs/output-formats/html-basics.html#css-styles
+
+HTML Themes: https://quarto.org/docs/output-formats/html-themes.html
+:::
+
+
+
+# General Tip {.inverse}
+
+## How to Make Sense of R Help Docs
+
+> I looked into the geomtextpath package and even found a fairly helpful guide (https://cran.r-project.org/web/packages/geomtextpath/vignettes/geomtextpath.html) but I'm still at a loss on how to incorporate the names into the lines themselves. I wish I were better at understanding the Help guides. 
+
+# Next Week
+
+- Catch-up week!
+
+- For following week, you will be learning to use Git and GitHub. 
