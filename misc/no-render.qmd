@@ -3,11 +3,12 @@ title: Does Not Render
 format: html
 ---
 
+```{r}
+library(tidyverse)
+```
 
 ```{r}
 penguins <- read_csv("https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/data-raw/penguins.csv")
 ```
 
-```{r}
-library(tidyverse)
-```
+

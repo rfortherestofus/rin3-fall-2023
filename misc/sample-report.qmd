@@ -5,5 +5,28 @@ format: html
 
 ```{r}
 source("import-penguins-data.R")
+
+# getwd()
 ```
+
+
+
+:::: {.columns}
+
+::: {.column width="70%"}
+```{r}
+penguins |> 
+  count(island) |> 
+  ggplot(aes(x = island, 
+             y = n)) +
+  geom_col()
+```
+:::
+
+::: {.column width="30%"}
+Aliquip aliquip fugiat dolor. Esse ut minim eiusmod ullamco. Nulla excepteur nulla dolore cupidatat dolor officia. Esse dolor elit nulla ut velit adipisicing enim proident.
+:::
+
+::::
+
 

@@ -3,6 +3,7 @@ title: Guess What You'll See
 format: html
 execute: 
   output: false
+  echo: false
 ---
 
 ```{r}
@@ -16,6 +17,8 @@ penguins <- read_csv("https://raw.githubusercontent.com/rfortherestofus/rin3-fal
 I'm having trouble getting the plot to show below. What do I need to change to make it show up? 
 
 ```{r}
+#| output: true
+#| echo: true
 penguins |> 
   count(island) |> 
   ggplot(aes(x = island, 

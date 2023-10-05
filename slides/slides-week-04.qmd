@@ -52,6 +52,8 @@ https://rin3fall2023.rfortherestofus.com/slides-week-04.html
 
 1. If you have additional or more advanced questions you want help with, please post in Discord!
 
+# Quarto {.inverse}
+
 # Quarto Exercise {.inverse}
 
 ## Quarto Exercise

@@ -1,8 +1,12 @@
 library(tidyverse)
-library(palmerpenguins)
+library(here)
+# library(palmerpenguins)
 
-data("penguins")
+# data("penguins")
 
-# penguins <- read_csv("data-raw/penguins.csv")
+# here()
+
+penguins <- read_csv(here("data-raw/penguins.csv"))
 
 
+# getwd()
