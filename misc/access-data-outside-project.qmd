@@ -1,0 +1,56 @@
+---
+title: "Access Data Outside of Project"
+format: html
+execute: 
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+library(tidyverse)
+library(googledrive)
+```
+
+```{r}
+drive_auth("david@rfortherestofus.com")
+```
+
+
+```{r}
+penguins <-
+  drive_read_string(file = "penguins.csv") |> 
+  read_csv()
+```
+
+```{r}
+temporary_file_location <- tempfile(fileext = ".csv")
+
+drive_download(file = "penguins.csv",
+               path = temporary_file_location)
+
+penguins2 <- read_csv(file = temporary_file_location)
+```
+
+# Chart with `penguins` data frame
+
+```{r}
+penguins |> 
+  count(island) |> 
+  ggplot(aes(x = island, 
+             y = n)) +
+  geom_col()
+```
+
+# Chart with `penguins2` data frame
+
+```{r}
+penguins2 |> 
+  count(island) |> 
+  ggplot(aes(x = island, 
+             y = n)) +
+  geom_col()
+```
+
+
+

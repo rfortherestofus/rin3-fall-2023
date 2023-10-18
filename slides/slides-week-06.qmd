@@ -1,0 +1,192 @@
+---
+title: R in 3 Months Week 4 (Quarto)
+format:
+  rfortherestofus-slides-revealjs:
+    menu: false
+    progress: true
+    slide-number: true
+    show-slide-number: print
+    center: true
+    incremental: true
+    auto-animate: true
+execute: 
+  message: false
+  warning: false
+  cache: false
+  # eval: false
+  echo: true
+title-slide-attributes:
+  data-background-image: assets/rru-hex-bg-gradient-dark.svg
+  data-background-size: cover
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(palmerpenguins)
+library(googlesheets4)
+library(janitor)
+library(scales)
+```
+
+# Agenda
+
+1. Housekeeping
+
+1. Data Viz Tips
+
+1. Git + GitHub
+
+1. Next week
+
+::: {.notes}
+https://rin3fall2023.rfortherestofus.com/slides-week-06.html
+:::
+
+# Housekeeping {.inverse}
+
+## What Does the Rest of R in 3 Months Look Like?
+
+- Week 7: Advanced Data Wrangling, Part 1 (Tidy Data)
+
+- Week 8: Advanced Data Wrangling, Part 2 (Functions and Data Merging)
+
+- Week 9: Advanced Data Viz, Part 1 (Highlighting and Decluttering)
+
+- Week 10: Advanced Data Viz, Part 2 (Explaining and Making Your Viz Sparkle)
+
+- Week 11: Catch-Up Week
+
+- Week 12: Advanced Quarto
+
+- Week 13: Wrap Up
+
+## Final project
+
+- Record a 5-minute video showing what you have learned how to do in R over the three months
+
+## You have access to materials FOREVER! {.inverse}
+
+## Survey Results {.inverse}
+
+## Overall Progress
+
+```{r}
+#| echo: false
+gs4_auth("david@rfortherestofus.com")
+
+check_in_data <-
+  read_sheet("https://docs.google.com/spreadsheets/d/1CQp1HiDltZ9rU6AoHDUhxMWX6hD_H2Yh5XCFvkBu8-U/edit?usp=sharing") |> 
+  clean_names() |> 
+  filter(timestamp >= as.Date("2023-10-01"))
+```
+
+```{r}
+#| echo: false
+check_in_data |> 
+  select(2) |> 
+  set_names("progress") |> 
+  count(progress) |> 
+  ggplot(aes(x = progress,
+             y = n,
+             label = n)) +
+  geom_col(fill = "#6cabdd") +
+  geom_text(vjust = 1.5,
+            family = "Inter Tight",
+            color = "white",
+            size = 16 / .pt) +
+  theme_void(base_size = 16,
+             base_family = "Inter Tight") +
+  theme(axis.text.x = element_text()) +
+  scale_y_continuous(expand = expansion(0, 0.1))
+```
+
+
+## Overall Workload
+
+```{r}
+#| echo: false
+check_in_data |> 
+  select(3) |> 
+  set_names("workload") |> 
+  count(workload) |> 
+  mutate(workload = factor(workload,
+                           levels = c("Not enough",
+                                      "Just right", 
+                                      "Too much"))) |> 
+  ggplot(aes(x = workload,
+             y = n,
+             label = n)) +
+  geom_col(fill = "#6cabdd") +
+  geom_text(vjust = 1.5,
+            family = "Inter Tight",
+            color = "white",
+            size = 16 / .pt) +
+  theme_void(base_size = 16,
+             base_family = "Inter Tight") +
+  theme(axis.text.x = element_text(),
+        plot.margin = margin(10, 10, 10, 10)) +
+  scale_y_continuous(expand = expansion(0, 0.1))
+```
+
+
+## Search All Videos
+
+> Not sure if this is an easy thing or not.. but I've found myself wanting to go back and find something that was specifically mentioned in a particular week's lessons, but wasn't sure in which video. The easiest way I could find to do this was to do a CMD+F search on every video within the lesson until I found the one that matched the text I was looking for. It would be SO awesome if there was a global search for the lessons.
+
+<br>
+
+::: {.small}
+[Ask and you shall receive!](https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/all-r-in-3-months-fall-2023-videos)
+:::
+
+::: {.notes}
+https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/all-r-in-3-months-fall-2023-videos
+:::
+
+## Ask Questions!
+
+- If you'd rather not ask in the chat, please message David, Libby, or Gracielle privately and we'll ask anonymously on your behalf!
+
+## Want More Advanced Materials?
+
+1. They're coming!
+
+1. If you have specific topics you'd like to see us address, please ask and we'll make additional lessons!
+
+# Data Viz Tips {.inverse}
+
+## Sizing of Plots in Preview Isn't Accurate
+
+# Git + GitHub {.inverse}
+
+## Git + GitHub
+
+- Using Git + GitHub with RStudio
+
+- How to Reproducibly Access Data Outside of Your RStudio Project
+
+- Publishing with GitHub Pages/Netlify
+
+- Using GitHub for Project Management
+
+- GitHub Actions
+
+::: {.notes}
+- https://googledrive.tidyverse.org/
+- https://foodmap.apicouncil.org/
+- https://github.com/rfortherestofus/rfortherestofus.com/issues
+- https://rfortherestofus.com/2023/05/github-actions
+:::
+
+
+
+# Next Week
+
+- Advanced data wrangling and analysis
+
+- Tidy data
+
+- No project assignment (but start thinking about how your data is or is not tidy)
