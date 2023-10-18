@@ -164,6 +164,8 @@ https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/all-r-in-3-m
 
 ## Git + GitHub
 
+- Make sure you use the R Git Ignore template
+
 - Using Git + GitHub with RStudio
 
 - How to Reproducibly Access Data Outside of Your RStudio Project
