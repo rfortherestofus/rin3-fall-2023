@@ -13,7 +13,7 @@ library(googledrive)
 ```
 
 ```{r}
-drive_auth("david@rfortherestofus.com")
+# drive_auth("david@rfortherestofus.com")
 ```
 
 
@@ -31,6 +31,7 @@ drive_download(file = "penguins.csv",
 
 penguins2 <- read_csv(file = temporary_file_location)
 ```
+
 
 # Chart with `penguins` data frame
 
@@ -53,4 +54,10 @@ penguins2 |>
 ```
 
 
+# Load Local Data
+
+```{r}
+penguins3 <-
+  read_csv("/Users/davidkeyes/Desktop/penguins.csv")
+```
 
