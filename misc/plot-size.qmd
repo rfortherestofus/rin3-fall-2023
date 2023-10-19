@@ -1,3 +1,11 @@
+---
+title: "Plot Size"
+format: html
+---
+
+```{r}
+#| fig-width: 5
+#| fig-height: 7
 library(tidyverse)
 library(palmerpenguins)
 library(nflplotR)
@@ -12,13 +20,5 @@ ggplot(data = penguins_bill_length_by_island,
            label = island)) +
   geom_col() +
   geom_text(vjust = -1)
+```
 
-ggsave(filename = "misc/penguins-plot.png",
-       width = 5,
-       height = 7)
-
-# https://search.r-project.org/CRAN/refmans/nflplotR/html/ggpreview.html
-
-ggpreview(width = 5,
-          height = 7,
-          units = "in")

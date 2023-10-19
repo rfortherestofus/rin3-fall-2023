@@ -1,5 +1,5 @@
 ---
-title: R in 3 Months Week 6 (Quarto)
+title: R in 3 Months Week 6 (Git and GitHub)
 format:
   rfortherestofus-slides-revealjs:
     menu: false
@@ -62,6 +62,8 @@ https://rin3fall2023.rfortherestofus.com/slides-week-06.html
 - Week 9: Advanced Data Viz, Part 1 (Highlighting and Decluttering)
 
 - Week 10: Advanced Data Viz, Part 2 (Explaining and Making Your Viz Sparkle)
+
+## What Does the Rest of R in 3 Months Look Like?
 
 - Week 11: Catch-Up Week
 
