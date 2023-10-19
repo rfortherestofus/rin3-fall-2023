@@ -1,5 +1,5 @@
 ---
-title: R in 3 Months Week 4 (Quarto)
+title: R in 3 Months Week 6 (Quarto)
 format:
   rfortherestofus-slides-revealjs:
     menu: false
@@ -46,6 +46,12 @@ https://rin3fall2023.rfortherestofus.com/slides-week-06.html
 :::
 
 # Housekeeping {.inverse}
+
+## Co-Working Sessions
+
+- New dates/times
+
+- There will be time devoted to reviewing concepts learned so far
 
 ## What Does the Rest of R in 3 Months Look Like?
 
