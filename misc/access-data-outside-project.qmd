@@ -58,6 +58,6 @@ penguins2 |>
 
 ```{r}
 penguins3 <-
-  read_csv("/Users/davidkeyes/Desktop/penguins.csv")
+  read_csv(Sys.getenv("PENGUINS_FILE_PATH"))
 ```
 
