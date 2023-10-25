@@ -45,6 +45,8 @@ library(scales)
 
 - There are some more advanced exercises in the #challenges-exercises channel in Discord
 
+- We will also be adding some more advanced exercises to lessons in the R in 3 Months Fall 2023 course
+
 - If you're looking for more exercises, check out [R for Data Science](https://r4ds.hadley.nz/)
 
 # Git + GitHub Tips {.inverse}
