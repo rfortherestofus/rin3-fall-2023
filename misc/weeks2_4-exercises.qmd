@@ -1,0 +1,72 @@
+---
+title: "Co-working hour"
+date: "October 24, 2023"
+author: "Your Name Here"
+format: html
+execute:s
+  echo: false
+  warning: false
+  error: false
+  include: true
+  output: false
+---
+
+# Analyzing the Palmer Penguins data
+
+```{r packages}
+library(palmerpenguins)
+library(tidyverse)
+library(janitor)
+```
+
+```{r data}
+data(package = 'palmerpenguins')
+data <- clean_names(penguins_raw)
+```
+
+
+## Context
+
+The Palmer Penguins data comes from a long-term ecological experiment in the Palmer Archipelago. This archipelago is located in Antarctica. Data were collected and made available by Dr. Kristen Gorman.
+
+<!--- Make the figure below look better! Try to replace it for a better one, add a border, re-align it... Play with it!--->
+
+![](https://upload.wikimedia.org/wikipedia/commons/1/15/Palmer_archipelago%2C_Antarctica.jpg)
+
+## Population metrics
+
+```{r calculate population metrics}
+
+
+```
+
+
+In the _________ island there were <!---insert here the number of individuals studied in the first island---> individuals, while in the _________ island there were <!---insert here the number of individuals studied in the second island--->, and in the _________ island there were <!---insert here the number of individuals studied in the third island--->.
+
+In these islands, there is a mean of `$mean_males_per_island` males per island. This number is very `similar/different` from the number of females per island, which is `$mean_females_per_island`. See the table below to see a comparison of the numbers of males and females per island:
+
+<!--- insert a table below with legend --->
+
+Here is a plot with the number of individuals of each species per island:
+
+<!--- insert a bar plot below with legend --->
+
+## Body metrics differences
+
+There is a clear difference between penguins metrics between species. Below we can see a scatterplot of the bill length and depth metrics by species (Adelie in <span style="color:blue;">blue</span>, Gentoo in <span style="color:orange;">orange</span>, and Chinstrap in <span style="color:purple;">purple</span>). 
+
+<!--- insert a scatterplot here. EXTRA: add a line across the points that is the approximate linear regression model that describes this variation.---> 
+```{r metrics per species}
+
+```
+
+The difference between these metrics per island, however, is not that clear:
+
+<!--- insert a scatterplot here, now highlighting the differences per island ---> 
+
+```{r metrics per island}
+#| output: 
+
+```
+
+
