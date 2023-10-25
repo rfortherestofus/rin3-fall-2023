@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="slides-week-06_files/libs/clipboard/clipboard.min.js"></script>
-<script src="slides-week-06_files/libs/quarto-html/tabby.min.js"></script>
-<script src="slides-week-06_files/libs/quarto-html/popper.min.js"></script>
-<script src="slides-week-06_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="slides-week-06_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="slides-week-06_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides-week-06_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="slides-week-06_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="slides-week-07_files/libs/clipboard/clipboard.min.js"></script>
+<script src="slides-week-07_files/libs/quarto-html/tabby.min.js"></script>
+<script src="slides-week-07_files/libs/quarto-html/popper.min.js"></script>
+<script src="slides-week-07_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="slides-week-07_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="slides-week-07_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="slides-week-07_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="slides-week-07_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.353">
 
-  <title>R in 3 Months Week 6 (Git and GitHub)</title>
+  <title>R in 3 Months Week 7 (Tidy Data)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="slides-week-06_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="slides-week-06_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="slides-week-07_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="slides-week-07_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -28,12 +28,77 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="slides-week-06_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="slides-week-06_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="slides-week-06_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="slides-week-06_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="slides-week-06_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="slides-week-07_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="slides-week-07_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="slides-week-07_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="slides-week-07_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="slides-week-07_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -324,7 +389,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="assets/rru-hex-bg-gradient-dark.svg" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">R in 3 Months Week 6 (Git and GitHub)</h1>
+  <h1 class="title">R in 3 Months Week 7 (Tidy Data)</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -334,140 +399,81 @@
 <h1>Agenda</h1>
 <ol type="1">
 <li class="fragment"><p>Housekeeping</p></li>
-<li class="fragment"><p>Data Viz Tips</p></li>
-<li class="fragment"><p>Git + GitHub</p></li>
+<li class="fragment"><p>Git + GitHub Tips</p></li>
+<li class="fragment"><p>Tidy Data</p></li>
 <li class="fragment"><p>Next week</p></li>
 </ol>
-<aside class="notes">
-<p>https://rin3fall2023.rfortherestofus.com/slides-week-06.html</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 
-<section>
-<section id="housekeeping" class="title-slide slide level1 inverse center">
+<section id="housekeeping" class="title-slide slide level1 center">
 <h1>Housekeeping</h1>
+<ul>
+<li class="fragment"><p>There are some more advanced exercises in the #challenges-exercises channel in Discord</p></li>
+<li class="fragment"><p>If you’re looking for more exercises, check out <a href="https://r4ds.hadley.nz/">R for Data Science</a></p></li>
+</ul>
+</section>
+
+<section>
+<section id="git-github-tips" class="title-slide slide level1 inverse center">
+<h1>Git + GitHub Tips</h1>
 
 </section>
-<section id="co-working-sessions" class="slide level2 center">
-<h2>Co-Working Sessions</h2>
-<ul>
-<li class="fragment"><p>New dates/times</p></li>
-<li class="fragment"><p>There will be time devoted to reviewing concepts learned so far</p></li>
-</ul>
+<section id="github-desktop-wording-is-confusing" class="slide level2 center">
+<h2>GitHub Desktop Wording is Confusing</h2>
 </section>
-<section id="what-does-the-rest-of-r-in-3-months-look-like" class="slide level2 center">
-<h2>What Does the Rest of R in 3 Months Look Like?</h2>
-<ul>
-<li class="fragment"><p>Week 7: Advanced Data Wrangling, Part 1 (Tidy Data)</p></li>
-<li class="fragment"><p>Week 8: Advanced Data Wrangling, Part 2 (Functions and Data Merging)</p></li>
-<li class="fragment"><p>Week 9: Advanced Data Viz, Part 1 (Highlighting and Decluttering)</p></li>
-<li class="fragment"><p>Week 10: Advanced Data Viz, Part 2 (Explaining and Making Your Viz Sparkle)</p></li>
-</ul>
-</section>
-<section id="what-does-the-rest-of-r-in-3-months-look-like-1" class="slide level2 center">
-<h2>What Does the Rest of R in 3 Months Look Like?</h2>
-<ul>
-<li class="fragment"><p>Week 11: Catch-Up Week</p></li>
-<li class="fragment"><p>Week 12: Advanced Quarto</p></li>
-<li class="fragment"><p>Week 13: Wrap Up</p></li>
-</ul>
-</section>
-<section id="final-project" class="slide level2 center">
-<h2>Final project</h2>
-<ul>
-<li class="fragment">Record a 5-minute video showing what you have learned how to do in R over the three months</li>
-</ul>
-</section>
-<section id="you-have-access-to-materials-forever" class="slide level2 inverse center">
-<h2>You have access to materials FOREVER!</h2>
-</section>
-<section id="survey-results" class="slide level2 inverse center">
-<h2>Survey Results</h2>
-</section>
-<section id="overall-progress" class="slide level2 center">
-<h2>Overall Progress</h2>
-
-<img data-src="slides-week-06_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section id="overall-workload" class="slide level2 center">
-<h2>Overall Workload</h2>
-
-<img data-src="slides-week-06_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
-<section id="search-all-videos" class="slide level2 center">
-<h2>Search All Videos</h2>
-<blockquote>
-<p>Not sure if this is an easy thing or not.. but I’ve found myself wanting to go back and find something that was specifically mentioned in a particular week’s lessons, but wasn’t sure in which video. The easiest way I could find to do this was to do a CMD+F search on every video within the lesson until I found the one that matched the text I was looking for. It would be SO awesome if there was a global search for the lessons.</p>
-</blockquote>
-<p><br></p>
-<div class="small">
-<p><a href="https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/all-r-in-3-months-fall-2023-videos">Ask and you shall receive!</a></p>
+<section id="dont-combine-git-and-dropboxonedrivegoogle-drive" class="slide level2 center">
+<h2>Don’t Combine Git and Dropbox/OneDrive/Google Drive</h2>
+<div class="fragment">
+<p>Dropbox and friends make many copies of files, which will confuse Git</p>
 </div>
-<aside class="notes">
-<p>https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/all-r-in-3-months-fall-2023-videos</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section id="ask-questions" class="slide level2 center">
-<h2>Ask Questions!</h2>
-<ul>
-<li class="fragment">If you’d rather not ask in the chat, please message David, Libby, or Gracielle privately and we’ll ask anonymously on your behalf!</li>
-</ul>
-</section>
-<section id="want-more-advanced-materials" class="slide level2 center">
-<h2>Want More Advanced Materials?</h2>
+<section id="how-to-set-up-git-and-github-in-rstudio" class="slide level2 center">
+<h2>How to Set up Git and GitHub in RStudio</h2>
 <ol type="1">
-<li class="fragment"><p>They’re coming!</p></li>
-<li class="fragment"><p>If you have specific topics you’d like to see us address, please ask and we’ll make additional lessons!</p></li>
+<li class="fragment"><p>Install Git (GitHub Desktop does this for you)</p></li>
+<li class="fragment"><p>Configure Git</p></li>
 </ol>
-</section></section>
-<section>
-<section id="data-viz-tips" class="title-slide slide level1 inverse center">
-<h1>Data Viz Tips</h1>
-
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"David Keyes"</span>, </span>
+<span id="cb1-2"><a href="#cb1-2"></a>                        <span class="at">user.email =</span> <span class="st">"david@rfortherestofus.com"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ol start="3" type="1">
+<li class="fragment">Create a personal access token (PAT)</li>
+</ol>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ol start="4" type="1">
+<li class="fragment">Register your PAT</li>
+</ol>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </section>
-<section id="sizing-of-plots-in-preview-isnt-accurate" class="slide level2 center">
-<h2>Sizing of Plots in Preview Isn’t Accurate</h2>
-</section></section>
-<section>
-<section id="git-github" class="title-slide slide level1 inverse center">
-<h1>Git + GitHub</h1>
-
-</section>
-<section id="git-github-1" class="slide level2 center">
-<h2>Git + GitHub</h2>
+<section id="collaborating-with-github" class="slide level2 center">
+<h2>Collaborating with GitHub</h2>
 <ul>
-<li class="fragment"><p>Make sure you use the R Git Ignore template</p></li>
-<li class="fragment"><p>Using Git + GitHub with RStudio</p></li>
-<li class="fragment"><p>How to Reproducibly Access Data Outside of Your RStudio Project</p></li>
-<li class="fragment"><p>Publishing with GitHub Pages/Netlify</p></li>
-<li class="fragment"><p>Using GitHub for Project Management</p></li>
-<li class="fragment"><p>GitHub Actions</p></li>
+<li class="fragment"><p>How to get others’ code</p></li>
+<li class="fragment"><p>Save, commit, pull, push</p></li>
+<li class="fragment"><p>Merge conflicts</p></li>
 </ul>
+</section></section>
+<section id="tidy-data" class="title-slide slide level1 inverse center">
+<h1>Tidy Data</h1>
+
+</section>
+
+<section>
+<section id="what-questions-do-you-have-about-tidy-data" class="title-slide slide level1 inverse center">
+<h1>What Questions Do You Have About Tidy Data?</h1>
 <aside class="notes">
-<ul>
-<li>https://googledrive.tidyverse.org/</li>
-<li>https://foodmap.apicouncil.org/</li>
-<li>https://github.com/rfortherestofus/rfortherestofus.com/issues</li>
-<li>https://rfortherestofus.com/2023/05/github-actions</li>
-</ul>
+<p>https://rfortherestofus.com/2022/01/tidy-data-chat</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -479,35 +485,47 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
-<section id="next-week" class="title-slide slide level1 center">
-<h1>Next Week</h1>
-<ul>
-<li class="fragment"><p>Advanced data wrangling and analysis</p></li>
-<li class="fragment"><p>Tidy data</p></li>
-<li class="fragment"><p>No project assignment (but start thinking about how your data is or is not tidy)</p></li>
-</ul>
+</section>
+<section id="davids-top-tidy-data-tips" class="slide level2 center">
+<h2>David’s Top Tidy Data Tips</h2>
+<ol type="1">
+<li class="fragment"><p>Think about your unit of analysis (e.g.&nbsp;individuals, responses to a question, etc) and tidy your data based on this</p></li>
+<li class="fragment"><p>Breaking your data into multiple data frames is often an important first step</p></li>
+</ol>
+</section>
+<section id="gracielles-tidy-data-example" class="slide level2 center">
+<h2>Gracielle’s Tidy Data Example</h2>
+</section>
+<section id="libbys-tidy-data-example" class="slide level2 center">
+<h2>Libby’s Tidy Data Example</h2>
+</section>
+<section id="next-week" class="slide level2 center">
+<h2>Next Week</h2>
+<ol type="1">
+<li class="fragment"><p>Lessons on data merging and functions</p></li>
+<li class="fragment"><p>Project assignment: tidy your data</p></li>
+</ol>
 <div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="slides-week-06_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="slides-week-07_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="slides-week-06_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="slides-week-06_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="slides-week-06_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="slides-week-06_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="slides-week-06_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="slides-week-07_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="slides-week-07_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="slides-week-07_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="slides-week-07_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="slides-week-07_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="slides-week-06_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="slides-week-06_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="slides-week-06_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="slides-week-06_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="slides-week-07_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="slides-week-07_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="slides-week-07_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="slides-week-07_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

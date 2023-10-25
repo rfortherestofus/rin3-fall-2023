@@ -1,0 +1,125 @@
+---
+title: R in 3 Months Week 7 (Tidy Data)
+format:
+  rfortherestofus-slides-revealjs:
+    menu: false
+    progress: true
+    slide-number: true
+    show-slide-number: print
+    center: true
+    incremental: true
+    auto-animate: true
+execute: 
+  message: false
+  warning: false
+  cache: false
+  # eval: false
+  echo: true
+title-slide-attributes:
+  data-background-image: assets/rru-hex-bg-gradient-dark.svg
+  data-background-size: cover
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(palmerpenguins)
+library(googlesheets4)
+library(janitor)
+library(scales)
+```
+
+# Agenda
+
+1. Housekeeping
+
+1. Git + GitHub Tips
+
+1. Tidy Data
+
+1. Next week
+
+# Housekeeping
+
+- There are some more advanced exercises in the #challenges-exercises channel in Discord
+
+- If you're looking for more exercises, check out [R for Data Science](https://r4ds.hadley.nz/)
+
+# Git + GitHub Tips {.inverse}
+
+## GitHub Desktop Wording is Confusing
+
+## Don't Combine Git and Dropbox/OneDrive/Google Drive
+
+::: {.fragment}
+Dropbox and friends make many copies of files, which will confuse Git
+:::
+
+## How to Set up Git and GitHub in RStudio
+
+1. Install Git (GitHub Desktop does this for you)
+
+2. Configure Git
+
+::: {.fragment}
+```{r}
+usethis::use_git_config(user.name = "David Keyes", 
+                        user.email = "david@rfortherestofus.com")
+```
+:::
+
+3. Create a personal access token (PAT)
+
+::: {.fragment}
+```{r}
+usethis::create_github_token()
+```
+:::
+
+4. Register your PAT
+
+::: {.fragment}
+```{r}
+#| eval: false
+gitcreds::gitcreds_set()
+```
+:::
+
+## Collaborating with GitHub
+
+- How to get others' code
+
+- Save, commit, pull, push
+
+- Merge conflicts
+
+# Tidy Data {.inverse}
+
+# What Questions Do You Have About Tidy Data? {.inverse}
+
+::: {.notes}
+https://rfortherestofus.com/2022/01/tidy-data-chat
+:::
+
+## David's Top Tidy Data Tips
+
+1. Think about your unit of analysis (e.g. individuals, responses to a question, etc) and tidy your data based on this
+
+1. Breaking your data into multiple data frames is often an important first step
+
+## Gracielle's Tidy Data Example
+
+## Libby's Tidy Data Example
+
+## Next Week
+
+1. Lessons on data merging and functions
+
+1. Project assignment: tidy your data
+
+
+
+
+

@@ -1,5 +1,5 @@
 ---
-title: R in 3 Months Week 6 (Git and GitHub) Hello!
+title: R in 3 Months Week 6 (Git and GitHub)
 format:
   rfortherestofus-slides-revealjs:
     menu: false
