@@ -103,6 +103,8 @@ gitcreds::gitcreds_set()
 
 - Merge conflicts
 
+THIS IS A CHANGE!!!
+
 # Tidy Data {.inverse}
 
 # What Questions Do You Have About Tidy Data? {.inverse}
