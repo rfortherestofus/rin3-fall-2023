@@ -41,6 +41,10 @@ library(scales)
 
 1. Next week
 
+::: {.notes}
+https://rin3fall2023.rfortherestofus.com/slides-week-07.html
+:::
+
 # Housekeeping
 
 - There are some more advanced exercises in the #challenges-exercises channel in Discord
@@ -107,21 +111,23 @@ gitcreds::gitcreds_set()
 https://rfortherestofus.com/2022/01/tidy-data-chat
 :::
 
+## Gracielle's Tidy Data Example
+
+## Libby's Tidy Data Example
+
 ## David's Top Tidy Data Tips
 
 1. Think about your unit of analysis (e.g. individuals, responses to a question, etc) and tidy your data based on this
 
 1. Breaking your data into multiple data frames is often an important first step
 
-## Gracielle's Tidy Data Example
-
-## Libby's Tidy Data Example
-
 ## Next Week
 
 1. Lessons on data merging and functions
 
 1. Project assignment: tidy your data
+
+1. Time change in some places next week!
 
 
 
