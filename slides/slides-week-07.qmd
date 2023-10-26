@@ -49,6 +49,8 @@ library(scales)
 
 - If you're looking for more exercises, check out [R for Data Science](https://r4ds.hadley.nz/)
 
+- Co-working sessions will no longer happen - unless you ask for it! 
+
 # Git + GitHub Tips {.inverse}
 
 ## GitHub Desktop Wording is Confusing
