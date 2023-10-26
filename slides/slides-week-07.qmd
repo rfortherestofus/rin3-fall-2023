@@ -86,7 +86,7 @@ usethis::create_github_token()
 ```
 :::
 
-4. Register your PAT
+4. Register your PAT!
 
 ::: {.fragment}
 ```{r}
