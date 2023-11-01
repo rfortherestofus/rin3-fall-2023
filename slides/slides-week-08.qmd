@@ -1,0 +1,75 @@
+---
+title: R in 3 Months Week 8 (Merging Data and Functions)
+format:
+  rfortherestofus-slides-revealjs:
+    menu: false
+    progress: true
+    slide-number: true
+    show-slide-number: print
+    center: true
+    incremental: true
+    auto-animate: true
+execute: 
+  message: false
+  warning: false
+  cache: false
+  # eval: false
+  echo: true
+title-slide-attributes:
+  data-background-image: assets/rru-hex-bg-gradient-dark.svg
+  data-background-size: cover
+editor_options: 
+  chunk_output_type: console
+---
+
+# Agenda
+
+1. Housekeeping
+
+1. One Quick Tip
+
+1. David's Top Tidy Data Tips
+
+1. A Few of Our Favorite Functions
+
+1. Next Week
+
+# Housekeeping
+
+- No more co-working sessions, but feel free to schedule 1-on-1 calls with your coach
+
+- If you do the more advanced exercises and want feedback, reach out to your coach
+
+# One Quick Tip
+
+. . .
+
+I'm seeing a difference in the syntax used in the main video vs the solution video and am wondering if you can please explain the difference. In the main video, you use `separate_longer_delim(cols = activities,...` but the solution video uses `separate_longer_delim(partyid,...` without the use of `cols =`.
+
+::: {.notes}
+https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/tidy-data-rule-2-every-row-is-an-observation
+
+https://muse.ai/vt/3k2zfi6
+:::
+
+# David's Top Tidy Data Tips
+
+1. Think about your unit of analysis (e.g. individuals, responses to a question, etc) and tidy your data based on this
+
+1. Breaking your data into multiple data frames is often an important first step
+
+# A Few of Our Favorite Functions
+
+- You've created a function in the context of data cleaning, but functions can be for anything
+
+- You'll learn later how to make a custom ggplot theme that is a function
+
+::: {.notes}
+https://book.rwithoutstatistics.com/packages-chapter
+:::
+
+# Next Week
+
+- Advanced data viz lessons
+
+- No project assignment, but start to think about improving a data viz you've made previously
