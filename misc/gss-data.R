@@ -10,6 +10,9 @@ gss_doc |>
 
 # My question: what percentage of black or african american people say they feel lonely?
 
+gss18 |>
+  select(id, starts_with("racecen"))
+
 # Lonely
 
 lonely <-
@@ -45,8 +48,7 @@ lonely |>
   left_join(race,
             join_by("id")) |>
   filter(race == "black or african american") |>
-  count(lonely_question, lonely_response, race) |>
-  select(-race) |>
+  count(lonely_question, lonely_response) |>
   group_by(lonely_question) |>
   mutate(pct = n / sum(n)) |>
   ungroup()

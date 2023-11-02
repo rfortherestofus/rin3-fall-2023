@@ -34,6 +34,10 @@ editor_options:
 
 1. Next Week
 
+::: {.notes}
+https://rin3fall2023.rfortherestofus.com/slides-week-08.html
+:::
+
 # Housekeeping
 
 - No more co-working sessions, but feel free to schedule 1-on-1 calls with your coach
@@ -49,7 +53,7 @@ I'm seeing a difference in the syntax used in the main video vs the solution vid
 ::: {.notes}
 https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/tidy-data-rule-2-every-row-is-an-observation
 
-https://muse.ai/vt/3k2zfi6
+https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/using-function-arguments
 :::
 
 # Your Questions
