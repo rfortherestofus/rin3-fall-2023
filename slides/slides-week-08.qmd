@@ -40,7 +40,7 @@ editor_options:
 
 - If you do the more advanced exercises and want feedback, reach out to your coach
 
-# One Quick Tip
+# Your Questions
 
 . . .
 
@@ -51,6 +51,13 @@ https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/tidy-data-ru
 
 https://muse.ai/vt/3k2zfi6
 :::
+
+# Your Questions
+
+. . .
+
+In the 'Your Turn' section, we're binding two datasets that have the same number of cols/vars. What if I want to bind two datasets with a different number of cols/vars? 
+Is this something we should avoid doing?
 
 # David's Top Tidy Data Tips
 

@@ -8,7 +8,7 @@
 <link href="slides-week-08_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="slides-week-08_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="slides-week-08_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.449">
+  <meta name="generator" content="quarto-1.3.450">
 
   <title>R in 3 Months Week 8 (Merging Data and Functions)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -155,8 +155,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -350,8 +349,8 @@
 </ul>
 </section>
 
-<section id="one-quick-tip" class="title-slide slide level1 center">
-<h1>One Quick Tip</h1>
+<section id="your-questions" class="title-slide slide level1 center">
+<h1>Your Questions</h1>
 <div class="fragment">
 <p>I’m seeing a difference in the syntax used in the main video vs the solution video and am wondering if you can please explain the difference. In the main video, you use <code>separate_longer_delim(cols = activities,...</code> but the solution video uses <code>separate_longer_delim(partyid,...</code> without the use of <code>cols =</code>.</p>
 <aside class="notes">
@@ -368,6 +367,13 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</div>
+</section>
+
+<section id="your-questions-1" class="title-slide slide level1 center">
+<h1>Your Questions</h1>
+<div class="fragment">
+<p>In the ‘Your Turn’ section, we’re binding two datasets that have the same number of cols/vars. What if I want to bind two datasets with a different number of cols/vars? Is this something we should avoid doing?</p>
 </div>
 </section>
 
@@ -436,6 +442,7 @@
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -696,9 +703,10 @@
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -708,17 +716,8 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
