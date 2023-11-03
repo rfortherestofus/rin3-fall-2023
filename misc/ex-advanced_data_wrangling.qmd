@@ -1,0 +1,63 @@
+---
+title: "Advanced Data Wrangling Exercises"
+author: "Gracielle Higino and Libby Heeren"
+format: html
+execute:
+  echo: false
+  warning: false
+  error: false
+  include: true
+  output: false
+---
+
+# The Geography of the Big Foot
+
+The Big Foot is a hairy creature that has been seen all over North America. In this report, we describe the geographical distribution and explore possible variables related to it's occurrence.
+
+![](https://media.giphy.com/media/fa1IxeZfpAMpcToJUk/giphy.gif){fig-align="center"}
+
+```{r load library and raw data}
+library(tidyverse)
+```
+
+```{r load raw data}
+bigfoot_raw <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-09-13/bigfoot.csv')
+```
+
+### Visibility by state
+
+The Big Foot is a sneaky species, which is hard to detect as it only gets out of its cave when it's snowy or rainy. The average visibility in miles during sightings by state are described in the plot below:
+
+<!---Insert here a bar chart with the average visibility by state--->
+```{r barplot average visibility by state}
+
+```
+
+As we can see in the plot above, the highest visibility in which a Big Foot was ever observed was recorded in the state of <!---insert here your answer---> during the <!---insert here your answer---> season. Interestingly, the Big Foot is less observed during the <!---insert here your answer---> and <!---insert here your answer---> seasons, because <!---include here your preferred explanation--->.
+
+### The influence of the moon
+
+Moon phase is also known to have a big influence on the occurrence of Big Foot sightings. The phase of the moon during which Big Foot is most often sighted is <!---
+What phase of the moon is it when most sightings occur? Create a new variable called moon_phase_category where:
+- from 0 up to and including 0.125 = new_moon, 
+- greater than 0.125 up to and including 0.375 = first_quarter, 
+- greater than 0.375 up to and including 0.625 = full_moon, 
+- greater than 0.625 up to and including 0.875 = last_quarter, 
+- greater than 0.875 up to and including 1.0 = new_moon
+--->
+
+When the moon is in the <!---include here the phase of the moon with the least sightings of the Big Foot---> phase, the Big Foot is harder to detect because it gets moody and wants to hide underwater. They can stay submerged for 64 hours without resurfacing to breathe.
+
+![](https://media.giphy.com/media/gzyuwvsSNy0FbbOKNk/giphy.gif)
+
+### Geographic distribution
+
+Below we can see the distribution of the Big Foot in the United States. The occurrences span from the extreme south of the U.S., in <!---sort the latitudes to find the state with points more at south--->, to its extreme north, in <!---sort the latitudes to find the state with points more at north--->.
+
+<!---Insert here the map of the Big Foot occurrences. Use ggplot2 to plot x = longitude and y = latitude. No need to build a fancy map, but try to do one if you're into it!--->
+
+```{r map of big foot occurrences}
+
+```
+
+
