@@ -1,0 +1,62 @@
+---
+title: R in 3 Months Week 9 (Advanced Data Viz, Part 1)
+format:
+  rfortherestofus-slides-revealjs:
+    menu: false
+    progress: true
+    slide-number: true
+    show-slide-number: print
+    center: true
+    incremental: true
+    auto-animate: true
+execute: 
+  message: false
+  warning: false
+  cache: false
+  # eval: false
+  echo: true
+title-slide-attributes:
+  data-background-image: assets/rru-hex-bg-gradient-dark.svg
+  data-background-size: cover
+editor_options: 
+  chunk_output_type: console
+---
+
+# Agenda
+
+1. Housekeeping
+
+1. Your Questions
+
+1. CBEM Data Viz Live Coding
+
+1. Next Week
+
+::: {.notes}
+https://rin3fall2023.rfortherestofus.com/slides-week-09.html
+:::
+
+# Housekeeping
+
+1. How to pull feedback from your coach
+
+# Your Questions
+
+> I'm wondering if it's possible/easy to use data within a table to fill a title or subtitle.
+
+# Advanced Data Viz {.inverse}
+
+# Europa Data Viz Guide
+
+[![](assets/europa-data-viz.png)](https://data.europa.eu/apps/data-visualisation-guide/)
+
+
+# CBEM Bar Chart Live Coding
+
+[![](assets/cbem-example.jpeg)](https://judishouse.org/research-tools/cbem/cbem-race-ethnicity/cbem-race-ethnicity-reports/)
+
+# Next Week
+
+- Advanced data viz lessons, part 2: make your own custom theme
+
+- Project assignment: improve an earlier data viz (or make a new one) using the principles you learn about
