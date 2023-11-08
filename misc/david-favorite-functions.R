@@ -115,6 +115,11 @@ map_df(.x = obtn_years,
        .f = import_median_income_data) |>
   view()
 
+median_income_list <-
+  map(.x = obtn_years,
+    .f = import_median_income_data) |>
+  list_rbind()
+
 
 # Plot --------------------------------------------------------------------
 
