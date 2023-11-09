@@ -38,6 +38,8 @@ https://rin3fall2023.rfortherestofus.com/slides-week-09.html
 
 # Housekeeping
 
+1. There are several additional lessons added recently (David + Gracielle demonstrating our favorite functions and Libby giving an intro to factors)
+
 1. How to pull feedback from your coach
 
 # Your Questions
@@ -49,7 +51,6 @@ https://rin3fall2023.rfortherestofus.com/slides-week-09.html
 # Europa Data Viz Guide
 
 [![](assets/europa-data-viz.png)](https://data.europa.eu/apps/data-visualisation-guide/)
-
 
 # CBEM Bar Chart Live Coding
 
