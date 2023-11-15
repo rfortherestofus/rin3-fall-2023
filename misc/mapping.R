@@ -6,24 +6,28 @@ library(jardskjalftar)
 # Iceland Earthquakes -----------------------------------------------------
 
 iceland <-
-  ne_countries(country = "Iceland",
-               scale = "large",
-               returnclass = "sf")
+  ne_countries(
+    country = "Iceland",
+    scale = "large",
+    returnclass = "sf"
+  )
 
 ggplot(data = iceland) +
   geom_sf() +
   theme_void()
 
-cur_date <- Sys.Date()
-cur_year <- lubridate::year(cur_date)
-cur_week <- lubridate::week(cur_date)
-# Sækjum fyrir síðustu viku
-cur_week <- cur_week - 1
-recent_earthquakes <- download_jsk_data(year = cur_year, week = cur_week)
+current_date <- today()
+current_year <- year(current_date)
+current_week <- week(current_date)
+
+earthquakes_this_week <- download_jsk_data(
+  year = current_year,
+  week = current_week
+)
 
 ggplot() +
   geom_sf(data = iceland) +
-  geom_sf(data = recent_earthquakes) +
+  geom_sf(data = earthquakes_this_week) +
   theme_void()
 
 
@@ -31,7 +35,6 @@ ggplot() +
 
 library(tidycensus)
 library(tidyverse)
-
 
 median_income <-
   get_acs(

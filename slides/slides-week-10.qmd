@@ -46,6 +46,12 @@ https://rin3fall2023.rfortherestofus.com/slides-week-10.html
 
 # Housekeeping
 
+1. Catch-up week next week
+
+1. All lessons have been posted
+
+1. Final assignment has been posted
+
 # Your Questions
 
 # Advanced Custom Themes
@@ -64,3 +70,5 @@ https://book.rwithoutstatistics.com/maps-chapter
 # Next Week
 
 - Catch-up week!
+
+- Feel free to reach out to coaches for 1-on-1 help
