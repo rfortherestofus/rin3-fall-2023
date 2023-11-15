@@ -1,0 +1,66 @@
+---
+title: R in 3 Months Week 10 (Advanced Data Viz, Part 2)
+format:
+  rfortherestofus-slides-revealjs:
+    menu: false
+    progress: true
+    slide-number: true
+    show-slide-number: print
+    center: true
+    incremental: true
+    auto-animate: true
+execute: 
+  message: false
+  warning: false
+  cache: false
+  # eval: false
+  echo: true
+title-slide-attributes:
+  data-background-image: assets/rru-hex-bg-gradient-dark.svg
+  data-background-size: cover
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
+
+# Agenda
+
+1. Housekeeping
+
+1. Your Questions
+
+1. Advanced Custom Themes
+
+1. Mapping
+
+1. Next Week
+
+::: {.notes}
+https://rin3fall2023.rfortherestofus.com/slides-week-10.html
+:::
+
+# Housekeeping
+
+# Your Questions
+
+# Advanced Custom Themes
+
+::: {.notes}
+https://book.rwithoutstatistics.com/custom-theme-chapter
+:::
+
+# Mapping
+
+::: {.notes}
+https://book.rwithoutstatistics.com/maps-chapter
+:::
+
+
+# Next Week
+
+- Catch-up week!
