@@ -60,6 +60,20 @@ https://rin3fall2023.rfortherestofus.com/slides-week-10.html
 https://book.rwithoutstatistics.com/custom-theme-chapter
 :::
 
+# Organizations with Public Custom {ggplot2} Themes
+
+* [The BBC's {bbplot} Package](https://github.com/bbc/bbplot)  
+
+* [The BBC's Cookbook for R Graphics](https://bbc.github.io/rcookbook/) 
+
+* [Washington Soil Health Initiative {washi} Branding Package](https://wa-department-of-agriculture.github.io/washi/)  
+
+* [Sage Bionetworks {sagethemes} Package](https://sage-bionetworks.github.io/sagethemes/)
+
+* [Duke University's {duke} Package](https://aidangildea.github.io/duke/)
+
+* [University of Exeter's theme_exeter()](https://github.com/lukepilling/theme_exeter)
+
 # Mapping
 
 ::: {.notes}
