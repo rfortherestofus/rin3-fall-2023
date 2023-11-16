@@ -26,8 +26,10 @@ earthquakes_this_week <- download_jsk_data(
 )
 
 ggplot() +
-  geom_sf(data = iceland) +
-  geom_sf(data = earthquakes_this_week) +
+  geom_sf(data = iceland,
+          fill = "lightblue") +
+  geom_sf(data = earthquakes_this_week,
+          aes(color = depth)) +
   theme_void()
 
 
@@ -35,19 +37,26 @@ ggplot() +
 
 library(tidycensus)
 library(tidyverse)
+library(sf)
 
 median_income <-
   get_acs(
-    state = "OR",
-    county = "Multnomah",
-    geography = "tract",
+    state = "MI",
+    geography = "county",
     variables = "B19013_001",
     geometry = TRUE,
     year = 2021
   )
 
+median_income_points <-
+  median_income |>
+  st_centroid()
+
 median_income |>
   ggplot(aes(fill = estimate)) +
-  geom_sf() +
+  # geom_sf() +
+  geom_sf(data = median_income_points,
+          color = "red",
+          aes(size = estimate)) +
   scale_fill_viridis_c(option = "magma") +
   theme_void()
