@@ -23,6 +23,7 @@ editor_options:
 ---
 
 ```{r}
+#| echo: false
 library(tidyverse)
 library(janitor)
 ```
@@ -31,8 +32,6 @@ library(janitor)
 # Agenda
 
 1. Housekeeping
-
-1. Your Questions
 
 1. Advanced Custom Themes
 
@@ -52,15 +51,14 @@ https://rin3fall2023.rfortherestofus.com/slides-week-10.html
 
 1. Final assignment has been posted
 
-# Your Questions
 
-# Advanced Custom Themes
+# Advanced Custom Themes {.inverse}
 
 ::: {.notes}
 https://book.rwithoutstatistics.com/custom-theme-chapter
 :::
 
-# Organizations with Public Custom {ggplot2} Themes
+# Organizations with Public Custom {ggplot2} Themes 
 
 * [The BBC's {bbplot} Package](https://github.com/bbc/bbplot)  
 
@@ -74,7 +72,7 @@ https://book.rwithoutstatistics.com/custom-theme-chapter
 
 * [University of Exeter's theme_exeter()](https://github.com/lukepilling/theme_exeter)
 
-# Mapping
+# Mapping {.inverse}
 
 ::: {.notes}
 https://book.rwithoutstatistics.com/maps-chapter
