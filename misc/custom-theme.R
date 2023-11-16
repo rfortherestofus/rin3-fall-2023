@@ -35,3 +35,43 @@ ggplot(data = penguins_bill_length_by_island,
   geom_text(vjust = -1) +
   scale_y_continuous(limits = c(0, 50)) +
   theme_dk()
+
+
+
+# OMNI --------------------------------------------------------------------
+
+# https://rfortherestofus.github.io/omni/articles/theme.html
+
+theme_omni <- function(show_grid_lines = FALSE,
+                       show_legend = TRUE,
+                       base_family = "Calibri") {
+
+  omni_theme <- theme_minimal(base_family = base_family) +
+    theme(
+      panel.grid.minor = element_blank(),
+      axis.ticks = element_blank(),
+      axis.title.x = element_text(margin = margin(15, 0, 0, 0)),
+      axis.title.y = element_text(margin = margin(0, 15, 0, 0)),
+      plot.title = element_markdown(
+        margin = margin(0, 0, 15, 0),
+        face = "bold",
+        size = 12
+      ),
+      plot.subtitle = element_markdown(size = 12),
+      plot.caption = element_text(size = 11, face = "italic")
+    )
+
+  # grid lines option
+  if (show_grid_lines == FALSE) {
+    omni_theme <- omni_theme +
+      theme(panel.grid.major = element_blank())
+  }
+
+  if (show_legend == FALSE) {
+    omni_theme <- omni_theme +
+      theme(legend.position = "none")
+  }
+
+  # return
+  omni_theme
+}

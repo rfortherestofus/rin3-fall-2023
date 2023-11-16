@@ -66,6 +66,8 @@ https://book.rwithoutstatistics.com/custom-theme-chapter
 
 * [Washington Soil Health Initiative {washi} Branding Package](https://wa-department-of-agriculture.github.io/washi/)  
 
+# Organizations with Public Custom {ggplot2} Themes, Continued 
+
 * [Sage Bionetworks {sagethemes} Package](https://sage-bionetworks.github.io/sagethemes/)
 
 * [Duke University's {duke} Package](https://aidangildea.github.io/duke/)
