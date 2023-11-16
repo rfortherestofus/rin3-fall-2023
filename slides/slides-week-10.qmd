@@ -64,6 +64,12 @@ https://book.rwithoutstatistics.com/custom-theme-chapter
 
 ::: {.notes}
 https://book.rwithoutstatistics.com/maps-chapter
+
+- geometry type
+- dimensions
+- bounding box
+- crs
+- geometry column
 :::
 
 
