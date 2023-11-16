@@ -7,21 +7,46 @@ library(ggtext)
 # Make removing legend an option
 # Make base text size an option based on operating system
 
-theme_dk <- function() {
+theme_dk <- function(base_font = "Inter",
+                     hide_gridlines = TRUE,
+                     hide_legend = TRUE) {
 
-  theme_minimal(base_family = "Geist Mono") +
+  update_geom_defaults(geom = "text",
+                       aes(family = base_font))
+
+  custom_theme <-
+    theme_minimal(base_family = base_font) +
     theme(axis.title = element_blank(),
           axis.text = element_text(color = "grey60",
                                    size = 10),
           plot.title = element_markdown(),
           plot.title.position = "plot",
-          panel.grid = element_blank(),
           legend.position = "none")
+
+
+  if (hide_gridlines == TRUE) {
+
+    custom_theme <-
+      custom_theme +
+      theme(panel.grid = element_blank())
+
+  }
+
+  if (hide_legend == FALSE) {
+
+    custom_theme <-
+      custom_theme +
+      theme(legend.position = "right")
+
+  }
+
+
+
+  return(custom_theme)
 
 }
 
-update_geom_defaults(geom = "text",
-                     aes(family = "Geist Mono"))
+
 
 penguins_bill_length_by_island <- penguins |>
   group_by(island) |>
@@ -30,11 +55,14 @@ penguins_bill_length_by_island <- penguins |>
 ggplot(data = penguins_bill_length_by_island,
        aes(x = island,
            y = mean_bill_length,
+           fill = island,
            label = island)) +
   geom_col() +
   geom_text(vjust = -1) +
   scale_y_continuous(limits = c(0, 50)) +
-  theme_dk()
+  theme_dk(base_font = "Inter",
+           hide_gridlines = TRUE,
+           hide_legend = TRUE)
 
 
 
