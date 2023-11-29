@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="slides-week-10_files/libs/clipboard/clipboard.min.js"></script>
-<script src="slides-week-10_files/libs/quarto-html/tabby.min.js"></script>
-<script src="slides-week-10_files/libs/quarto-html/popper.min.js"></script>
-<script src="slides-week-10_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="slides-week-10_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="slides-week-10_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides-week-10_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="slides-week-10_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="slides-week-11_files/libs/clipboard/clipboard.min.js"></script>
+<script src="slides-week-11_files/libs/quarto-html/tabby.min.js"></script>
+<script src="slides-week-11_files/libs/quarto-html/popper.min.js"></script>
+<script src="slides-week-11_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="slides-week-11_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="slides-week-11_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="slides-week-11_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="slides-week-11_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
   <title>R in 3 Months Week 11 (Advanced Quarto)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="slides-week-10_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="slides-week-10_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="slides-week-11_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="slides-week-11_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,11 +29,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="slides-week-10_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="slides-week-10_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="slides-week-10_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="slides-week-10_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="slides-week-10_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="slides-week-11_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="slides-week-11_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="slides-week-11_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="slides-week-11_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="slides-week-11_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -323,7 +323,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="assets/rru-hex-bg-gradient-dark.svg" data-background-size="cover" class="quarto-title-block center">
+<section id="title-slide" data-background-image="assets/rru-hex-bg-gradient-dark.svg" class="quarto-title-block center">
   <h1 class="title">R in 3 Months Week 11 (Advanced Quarto)</h1>
 
 <div class="quarto-title-authors">
@@ -334,12 +334,11 @@
 <h1>Agenda</h1>
 <ol type="1">
 <li class="fragment"><p>Housekeeping</p></li>
-<li class="fragment"><p>Advanced Custom Themes</p></li>
-<li class="fragment"><p>Mapping</p></li>
+<li class="fragment"><p>Advanced Quarto</p></li>
 <li class="fragment"><p>Next Week</p></li>
 </ol>
 <aside class="notes">
-<p>https://rin3fall2023.rfortherestofus.com/slides-week-10.html</p>
+<p>https://rin3fall2023.rfortherestofus.com/slides-week-11.html</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -356,57 +355,41 @@
 <section id="housekeeping" class="title-slide slide level1 center">
 <h1>Housekeeping</h1>
 <ol type="1">
-<li class="fragment"><p>Catch-up week next week</p></li>
-<li class="fragment"><p>All lessons have been posted</p></li>
-<li class="fragment"><p>Final assignment has been posted</p></li>
+<li class="fragment"><p>Next week is the last live session, but you can get feedback through December</p></li>
+<li class="fragment"><p>You’ll have access to course materials forever!</p></li>
 </ol>
 </section>
 
-<section id="advanced-custom-themes" class="title-slide slide level1 inverse center">
-<h1>Advanced Custom Themes</h1>
+<section>
+<section id="advanced-quarto" class="title-slide slide level1 inverse center">
+<h1>Advanced Quarto</h1>
+
+</section>
+<section id="adding-comments-with-hypothes.is" class="slide level2 inverse center">
+<h2>Adding Comments with hypothes.is</h2>
+</section>
+<section id="parameterized-reporting" class="slide level2 inverse center">
+<h2>Parameterized Reporting</h2>
 <aside class="notes">
-<p>https://book.rwithoutstatistics.com/custom-theme-chapter</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="organizations-with-public-custom-ggplot2-themes" class="title-slide slide level1 center">
-<h1>Organizations with Public Custom {ggplot2} Themes</h1>
 <ul>
-<li class="fragment"><p><a href="https://github.com/bbc/bbplot">The BBC’s {bbplot} Package</a></p></li>
-<li class="fragment"><p><a href="https://bbc.github.io/rcookbook/">The BBC’s Cookbook for R Graphics</a></p></li>
-<li class="fragment"><p><a href="https://wa-department-of-agriculture.github.io/washi/">Washington Soil Health Initiative {washi} Branding Package</a></p></li>
-</ul>
-</section>
-
-<section id="organizations-with-public-custom-ggplot2-themes-continued" class="title-slide slide level1 center">
-<h1>Organizations with Public Custom {ggplot2} Themes, Continued</h1>
+<li><p>https://book.rwithoutstatistics.com/quarto-chapter#parameterized-reporting</p></li>
+<li><p>Add parameter</p>
 <ul>
-<li class="fragment"><p><a href="https://sage-bionetworks.github.io/sagethemes/">Sage Bionetworks {sagethemes} Package</a></p></li>
-<li class="fragment"><p><a href="https://aidangildea.github.io/duke/">Duke University’s {duke} Package</a></p></li>
-<li class="fragment"><p><a href="https://github.com/lukepilling/theme_exeter">University of Exeter’s theme_exeter()</a></p></li>
-</ul>
-</section>
-
-<section id="mapping" class="title-slide slide level1 inverse center">
-<h1>Mapping</h1>
-<aside class="notes">
-<p>https://book.rwithoutstatistics.com/maps-chapter</p>
+<li>Make sure to use <code>fct()</code> to change order of bars</li>
+<li>Add inline R code</li>
+</ul></li>
+<li><p>Render with parameter</p></li>
+<li><p>Create R script file to render</p></li>
+<li><p>Render report with <code>quarto_render()</code></p>
 <ul>
-<li>geometry type</li>
-<li>dimensions</li>
-<li>bounding box</li>
-<li>crs</li>
-<li>geometry column</li>
+<li>Show <code>input</code>, <code>output_file</code>, and <code>execute_params</code> arguments</li>
+<li>Talk about how we could render one report this way, but not all reports</li>
+</ul></li>
+<li><p>Create tibble to render one report and pass it to <code>quarto_render()</code></p></li>
+<li><p>Create <code>reports</code> tibble with all counties</p>
+<ul>
+<li>Render with <code>pwalk()</code></li>
+</ul></li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -419,14 +402,14 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-
+</section></section>
 <section id="next-week" class="title-slide slide level1 center">
 <h1>Next Week</h1>
-<ul>
-<li class="fragment"><p>Catch-up week!</p></li>
-<li class="fragment"><p>Feel free to reach out to coaches for 1-on-1 help</p></li>
-</ul>
+<ol type="1">
+<li class="fragment"><p>Surveys on your progress and on feedback on R in 3 Months</p></li>
+<li class="fragment"><p>Please complete final projects <strong>even if you haven’t completed every single lesson</strong></p></li>
+<li class="fragment"><p>Next week we’ll talk about your progress (including showing some final projects) and discuss where you go after R in 3 Months to continue learning R</p></li>
+</ol>
 <div class="footer footer-default">
 
 </div>
@@ -435,19 +418,19 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="slides-week-10_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="slides-week-11_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="slides-week-10_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="slides-week-10_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="slides-week-10_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="slides-week-10_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="slides-week-10_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="slides-week-11_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="slides-week-11_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="slides-week-11_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="slides-week-11_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="slides-week-11_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="slides-week-10_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="slides-week-10_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="slides-week-10_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="slides-week-10_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="slides-week-11_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="slides-week-11_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="slides-week-11_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="slides-week-11_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

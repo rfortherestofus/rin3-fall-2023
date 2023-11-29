@@ -1,0 +1,80 @@
+---
+title: R in 3 Months Week 11 (Advanced Quarto)
+format:
+  rfortherestofus-slides-revealjs:
+    menu: false
+progress: true
+slide-number: true
+show-slide-number: print
+center: true
+incremental: true
+auto-animate: true
+execute: 
+  message: false
+  warning: false
+  cache: false
+  # eval: false
+  echo: true
+title-slide-attributes:
+  data-background-image: assets/rru-hex-bg-gradient-dark.svg
+data-background-size: cover
+editor_options: 
+  chunk_output_type: console
+---
+  
+```{r}
+#| echo: false
+library(tidyverse)
+library(janitor)
+```
+
+
+# Agenda
+
+1. Housekeeping
+
+1. Advanced Quarto
+
+1. Next Week
+
+::: {.notes}
+https://rin3fall2023.rfortherestofus.com/slides-week-11.html
+:::
+  
+# Housekeeping
+  
+1. Next week is the last live session, but you can get feedback through December
+
+1. You'll have access to course materials forever!
+
+# Advanced Quarto {.inverse}
+
+## Adding Comments with hypothes.is {.inverse}
+
+## Parameterized Reporting {.inverse}
+
+::: {.notes}
+- https://book.rwithoutstatistics.com/quarto-chapter#parameterized-reporting
+
+- Add parameter
+  - Make sure to use `fct()` to change order of bars
+  - Add inline R code
+- Render with parameter
+- Create R script file to render
+- Render report with `quarto_render()`
+  - Show `input`, `output_file`, and `execute_params` arguments
+  - Talk about how we could render one report this way, but not all reports
+- Create tibble to render one report and pass it to `quarto_render()`
+- Create `reports` tibble with all counties
+  - Render with `pwalk()`
+:::
+  
+# Next Week
+
+1. Surveys on your progress and on feedback on R in 3 Months
+  
+1. Please complete final projects **even if you haven't completed every single lesson**
+
+1. Next week we'll talk about your progress (including showing some final projects) and discuss where you go after R in 3 Months to continue learning R
+
+

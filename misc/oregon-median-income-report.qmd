@@ -1,16 +1,19 @@
+---
+title: "Oregon Median Income Report"
+format: html
+execute: 
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
 library(tidyverse)
 library(scales)
-# library(obtn)
+```
 
-# obtn_data_median_income |>
-#   filter(year == 2023) |>
-#   select(-year) |>
-#   rename(amount = value) |>
-#   mutate(amount_formatted = dollar(amount)) |>
-#   write_csv("data-raw/oregon-median-income-by-county.csv")
-#
-# median_income <- read_csv("data-raw/oregon-median-income-by-county.csv")
 
+```{r}
 median_income <- read_csv("https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/data-raw/oregon-median-income-by-county.csv")
 
 median_income_yamhill <- median_income |>
@@ -29,3 +32,9 @@ ggplot(data = median_income_yamhill,
     "Oregon" = "grey"
   )) +
   theme_void()
+```
+
+```{r}
+
+```
+

@@ -1,0 +1,4 @@
+- source: hypothesis.qmd
+  netlify:
+    - id: 165a7647-30fe-4cbd-b161-ec2ac14a584d
+      url: 'https://clever-druid-9d44d9.netlify.app'
