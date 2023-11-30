@@ -28,9 +28,11 @@ median_income_county <-
   pull(amount_formatted)
 ```
 
+
 # `r county_to_filter`
 
 Here is a plot showing median income in Oregon and `r county_to_filter`. The median income in `r county_to_filter` is `r median_income_county`.
+
 
 ```{r}
 ggplot(data = median_income_filtered,
