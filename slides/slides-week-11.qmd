@@ -49,6 +49,8 @@ https://rin3fall2023.rfortherestofus.com/slides-week-11.html
 
 # Advanced Quarto {.inverse}
 
+## Conditional Content {.inverse}
+
 ## Adding Comments with hypothes.is {.inverse}
 
 ## Parameterized Reporting {.inverse}

@@ -1,0 +1,46 @@
+---
+title: "Conditional Content"
+format: docx
+execute: 
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r}
+library(tidyverse)
+library(gt)
+library(flextable)
+```
+
+:::{.content-visible when-format="html"}
+```{r}
+towny |>
+  select(name, census_div, starts_with("population")) |>
+  gt() |>
+  fmt_integer() |>
+  cols_label_with(fn = function(x) sub("population_", "", x)) |>
+  cols_width(
+    name ~ px(200),
+    census_div ~ px(200)
+  ) |>
+  tab_header(
+    title = "Populations of Municipalities",
+    subtitle = "Census values from 1996 to 2021."
+  ) |>
+  tab_source_note(source_note = md("Data taken from the `towny` dataset.")) |>
+  opt_interactive()
+```
+:::
+
+
+::: {.content-visible when-format="docx"}
+```{r}
+towny |>
+  slice(1:10) |> 
+  select(name, census_div, starts_with("population")) |>
+  flextable()
+```
+:::
+
+
