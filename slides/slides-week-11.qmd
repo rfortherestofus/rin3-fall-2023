@@ -51,6 +51,10 @@ https://rin3fall2023.rfortherestofus.com/slides-week-11.html
 
 ## Conditional Content {.inverse}
 
+## Conditional Content
+
+If `flextable` is better for Word/Powerpoint and `gt` is better for web/interactive, is there a way to set a conditional to choose how to render the table depending on what the report is targeting? 
+
 ## Adding Comments with hypothes.is {.inverse}
 
 ## Parameterized Reporting {.inverse}
