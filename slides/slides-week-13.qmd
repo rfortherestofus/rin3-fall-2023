@@ -1,0 +1,252 @@
+---
+title: R in 3 Months Week 13 (Wrapping Up)
+format:
+  rfortherestofus-slides-revealjs:
+    menu: false
+progress: true
+slide-number: true
+show-slide-number: print
+center: true
+incremental: true
+auto-animate: true
+execute: 
+  message: false
+  warning: false
+  cache: false
+  # eval: false
+  echo: true
+title-slide-attributes:
+  data-background-image: assets/rru-hex-bg-gradient-dark.svg
+data-background-size: cover
+editor:
+  render-on-save: true
+editor_options: 
+  chunk_output_type: console
+---
+
+  
+```{r}
+#| echo: false
+library(tidyverse)
+library(janitor)
+```
+
+
+# Agenda
+
+1. How Far You've Come
+
+1. Where to Go From Here
+
+::: {.notes}
+https://rin3fall2023.rfortherestofus.com/slides-week-13.html
+:::
+  
+# How Far You've Come {.inverse}
+
+```{r}
+#| echo: false
+
+library(googlesheets4)
+library(tidyverse)
+library(janitor)
+library(scales)
+
+pre_survey <- read_sheet("https://docs.google.com/spreadsheets/d/19Ny92IGg0ZzIqiLs7QywaGF-Y85HQZn1iIIXN4I_tpg/edit#gid=1201619159") |>
+  clean_names() |>
+  filter(timestamp > as.Date("2023-01-01")) |>
+  select(-what_is_your_name)
+
+pre_survey_tidy <- pre_survey |>
+  select(contains("rate"), contains("terrified")) |>
+  set_names(c("data_analysis", "visualization", "scared")) |>
+  pivot_longer(cols = everything()) |>
+  mutate(timing = "Pre")
+
+post_survey <- read_sheet("https://docs.google.com/spreadsheets/d/1S5g1UYyBKiUfIU3yi9M_OZs1RvedH5xPPrMhs8Sw53o/edit#gid=1400508795") |>
+  clean_names() |>
+  filter(timestamp > as.Date("2023-09-01"))
+
+post_survey_tidy <- post_survey |>
+  select(contains("rate"), contains("terrified")) |>
+  set_names(c("data_analysis", "visualization", "scared")) |>
+  pivot_longer(cols = everything()) |>
+  mutate(timing = "Post")
+
+pre_post_data <- bind_rows(pre_survey_tidy, post_survey_tidy) |>
+    group_by(timing, name) |>
+    summarize(avg_response = mean(value, na.rm = TRUE)) |>
+    ungroup() |>
+    mutate(timing = fct_rev(timing)) |>
+    mutate(avg_response_formatted = number(avg_response, 0.1))
+
+pre_post_plot <- function(area) {
+   pre_post_data |>
+    filter(name == area) |>
+    ggplot(aes(timing, avg_response,
+               color = timing,
+               group = 1,
+               label = avg_response_formatted)) +
+    geom_line(color = "grey") +
+    geom_point(size = 10) +
+    geom_text(color = "white") +
+    theme_minimal(base_family = "Inter") +
+    theme(panel.grid.minor = element_blank(),
+          axis.title = element_blank(),
+          legend.position = "none") +
+    scale_y_continuous(limits = c(1, 10),
+                       breaks = seq(1, 10, 1)) +
+    scale_color_manual(values = rev(c("#6cabdd", "#ff7400")))
+}
+```
+
+::: {.notes}
+https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/r-in-3-months-progress-survey
+:::
+
+## Data Analysis
+
+```{r}
+#| echo: false
+pre_post_plot("data_analysis")
+```
+
+## Data Analysis
+
+```{r}
+#| echo: false
+pre_post_plot("visualization")
+```
+
+
+
+## How Scared/Excited You Are About R
+
+```{r}
+#| echo: false
+pre_post_plot("scared")
+```
+
+## What You've Done in the Last Three Months {.inverse}
+
+# Where to Go From Here {.inverse}
+
+## Where to Ask Questions
+
+There are three popular question and answer communities for (R) code questions:
+
+## [stackoverflow.com](https://stackoverflow.com)
+
+- This is a general purpose code Q&A website.
+
+- Unfortunately, it has a well-earned reputation for not being welcoming to new users.
+
+
+
+## [Posit Community](https://community.rstudio.com/)
+
+- This community is run by Posit and is specifically for R users.
+
+- The admins do work to make the site a welcoming place for all users.
+
+## [R for Data Science Learning Community](https://www.rfordatasci.com/)
+
+- Slack community that is very welcoming to newbies
+
+- Has regular office hours where you can get 1-on-1 help
+
+## Bonus: [R-Ladies](https://rladies.org/)
+
+- "A worldwide organization whose mission is to promote gender diversity in the R community"
+
+- Extremely welcoming
+
+- Have local chapters that often host events
+
+## Bonus: ChatGPT
+
+- The more you can specify the package you want it to use, the better results you'll have
+
+# How to Ask Good (Code) Questions {.inverse}
+
+
+
+## How to Ask Good (Code) Questions
+
+The most important part of asking good questions about code is to provide **reproducible examples**.
+
+. . .
+
+> A **reproducible example** contains all necessary code to reproduce your error or to customise your chart.
+
+. . .
+
+The `reprex` package is designed to help guarantee your examples are reproducible.
+
+## Examples are *Minimal*
+
+In addition to making your code reproducible you should try to make it *minimal*.
+
+. . .
+
+> Use the smallest, simplest, most built-in data possible.
+> 
+> Think: iris or mtcars. Bore me.
+
+. . .
+
+Make your question as focused as possible
+
+
+
+## Example of a Good Reprex
+
+How can I make my x axis text better?
+
+```{r}
+mtcars |>
+  group_by(cyl) |>
+  summarize(avg_horsepower = mean(hp)) |>
+  ggplot(aes(x = cyl,
+             y = avg_horsepower)) +
+  geom_col()
+```
+
+
+## Using the `reprex` Package
+
+1. Select the code that makes your reprex
+
+1. Open the Addins menu and select "Render reprex..."
+
+1. Choose the options for where you're asking your question
+
+1. Copy and paste the output in the Viewer tab into your question
+
+
+
+## Learn More About Reprex
+
+[Jenny Bryan video overview of reprex](https://www.youtube.com/watch?v=5gqksthQ0cM&ab_channel=PositPBC)
+
+[StackOverflow thread on how to write a good reprex](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/16532098)
+
+# Wrapping Up {.inverse}
+
+## R in 3 Months
+
+1. Submit any assignments for feedback in December
+
+1. Any 1-on-1s with your coaches must be done by December XX
+
+1. Please submit final assignments whenever (we love seeing what you've done!)
+
+1. You have access to course materials FOREVER
+
+## Other Things
+
+1. Topics courses (use coupon code RIN3TOPICSCOURSES to get 25% off)
+
+1. Additional ways that R for the Rest of Us can help you and your organization
+
+# Thank You for Being Part of R in 3 Months! {.inverse}
