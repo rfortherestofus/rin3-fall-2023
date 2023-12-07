@@ -437,8 +437,8 @@
 <h2>Data Analysis</h2>
 
 <img data-src="slides-week-13_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section id="data-analysis-1" class="slide level2 center">
-<h2>Data Analysis</h2>
+<section id="data-visualization" class="slide level2 center">
+<h2>Data Visualization</h2>
 
 <img data-src="slides-week-13_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
 <section id="how-scaredexcited-you-are-about-r" class="slide level2 center">
@@ -527,11 +527,12 @@
 <p>How can I reorder bars on the y axis?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">group_by</span>(cut) <span class="sc">|&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">summarize</span>(<span class="at">avg_price =</span> <span class="fu">mean</span>(price)) <span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> avg_price,</span>
-<span id="cb1-5"><a href="#cb1-5"></a>             <span class="at">y =</span> cut)) <span class="sc">+</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">mutate</span>(<span class="at">cut =</span> <span class="fu">as.character</span>(cut)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">group_by</span>(cut) <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="fu">summarize</span>(<span class="at">avg_price =</span> <span class="fu">mean</span>(price)) <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> avg_price,</span>
+<span id="cb1-6"><a href="#cb1-6"></a>             <span class="at">y =</span> cut)) <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="slides-week-13_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>

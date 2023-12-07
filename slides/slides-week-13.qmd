@@ -56,7 +56,7 @@ gs4_auth("david@rfortherestofus.com")
 
 pre_survey <- read_sheet("https://docs.google.com/spreadsheets/d/19Ny92IGg0ZzIqiLs7QywaGF-Y85HQZn1iIIXN4I_tpg/edit#gid=1201619159") |>
   clean_names() |>
-  filter(timestamp > as.Date("2023-01-01")) |>
+  filter(timestamp > as.Date("2023-09-01")) |>
   select(-what_is_your_name)
 
 pre_survey_tidy <- pre_survey |>
@@ -110,10 +110,10 @@ https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/r-in-3-month
 
 ```{r}
 #| echo: false
-pre_post_plot("data_analysis")
+pre_post_plot(area = "data_analysis")
 ```
 
-## Data Analysis
+## Data Visualization
 
 ```{r}
 #| echo: false
@@ -206,11 +206,16 @@ Make your question as focused as possible
 How can I reorder bars on the y axis?
 
 ```{r}
+library(tidyverse)
+
 diamonds |>
+  mutate(cut = as.character(cut)) |>
   group_by(cut) |>
   summarize(avg_price = mean(price)) |>
-  ggplot(aes(x = avg_price,
-             y = cut)) +
+  ggplot(aes(
+    x = avg_price,
+    y = cut
+  )) +
   geom_col()
 ```
 
