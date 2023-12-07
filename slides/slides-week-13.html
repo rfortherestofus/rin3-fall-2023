@@ -524,13 +524,13 @@
 </section>
 <section id="example-of-a-good-reprex" class="slide level2 center">
 <h2>Example of a Good Reprex</h2>
-<p>How can I make my x axis text better?</p>
+<p>How can I reorder bars on the y axis?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>mtcars <span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">|&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">summarize</span>(<span class="at">avg_horsepower =</span> <span class="fu">mean</span>(hp)) <span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cyl,</span>
-<span id="cb1-5"><a href="#cb1-5"></a>             <span class="at">y =</span> avg_horsepower)) <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">group_by</span>(cut) <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">summarize</span>(<span class="at">avg_price =</span> <span class="fu">mean</span>(price)) <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> avg_price,</span>
+<span id="cb1-5"><a href="#cb1-5"></a>             <span class="at">y =</span> cut)) <span class="sc">+</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
@@ -557,8 +557,8 @@
 <section id="r-in-3-months" class="slide level2 center">
 <h2>R in 3 Months</h2>
 <ol type="1">
-<li class="fragment"><p>Submit any assignments for feedback in December</p></li>
-<li class="fragment"><p>Any 1-on-1s with your coaches must be done by December XX</p></li>
+<li class="fragment"><p>Submit any assignments for feedback any time in December</p></li>
+<li class="fragment"><p>Any 1-on-1s with your coaches must be completed by December 22</p></li>
 <li class="fragment"><p>Please submit final assignments whenever (we love seeing what you’ve done!)</p></li>
 <li class="fragment"><p>You have access to course materials FOREVER</p></li>
 </ol>

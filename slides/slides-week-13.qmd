@@ -52,6 +52,8 @@ library(tidyverse)
 library(janitor)
 library(scales)
 
+gs4_auth("david@rfortherestofus.com")
+
 pre_survey <- read_sheet("https://docs.google.com/spreadsheets/d/19Ny92IGg0ZzIqiLs7QywaGF-Y85HQZn1iIIXN4I_tpg/edit#gid=1201619159") |>
   clean_names() |>
   filter(timestamp > as.Date("2023-01-01")) |>
@@ -201,14 +203,14 @@ Make your question as focused as possible
 
 ## Example of a Good Reprex
 
-How can I make my x axis text better?
+How can I reorder bars on the y axis?
 
 ```{r}
-mtcars |>
-  group_by(cyl) |>
-  summarize(avg_horsepower = mean(hp)) |>
-  ggplot(aes(x = cyl,
-             y = avg_horsepower)) +
+diamonds |>
+  group_by(cut) |>
+  summarize(avg_price = mean(price)) |>
+  ggplot(aes(x = avg_price,
+             y = cut)) +
   geom_col()
 ```
 
@@ -235,9 +237,9 @@ mtcars |>
 
 ## R in 3 Months
 
-1. Submit any assignments for feedback in December
+1. Submit any assignments for feedback any time in December
 
-1. Any 1-on-1s with your coaches must be done by December XX
+1. Any 1-on-1s with your coaches must be completed by December 22
 
 1. Please submit final assignments whenever (we love seeing what you've done!)
 
